@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -19,8 +20,12 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
+    //agregando al rol SUPER-ADMIN todos los PERMISOS
     public function boot(): void
     {
-        //
+        Gate::before(function ($user, $ability) {
+            return $user->email == 'super_admin@mail.com' ?? null;
+            // return $user->hasRole('Super Admin') ? true : null;
+        });
     }
 }
