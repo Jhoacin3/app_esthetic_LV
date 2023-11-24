@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
+    //protegiendo campos
+    protected $fillable = [
+        'name',
+        'description',
+        'quantity',
+    ];
     use HasFactory;
 }
