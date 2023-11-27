@@ -48,17 +48,16 @@ defineProps({
 
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                    <!-- Imagen a la derecha -->
-                    <div class="md:col-span-1">
-                        <img src="@/img/logo.svg" alt="Logo" class="logo block h-40 w-auto fill-current text-gray-600">
-                    </div>
                     <!-- Acomoden todo a su gusto, que tenga color, estilo, etc.. -->
                     <!-- los del front: Texto de bienvenida a la izquierda -->
                     <div class="md:col-span-1">
-                        <h2 class="text-3xl font-semibold mb-4">¡Hola de nuevo!</h2>
-                        <p class="text-gray-600">
-                            Estimdo Empleado, favor de registrase o iniciar sesión en la parte superior.
-                        </p>
+                        <div class="sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+                            <h2 id="textUno" class="text-gold-300 font-semibold mb-4">¡Hola de nuevo!</h2>
+                            <br>
+                            <h4 id="textoDos" class="text-gray-100 font-semibold mb-9">
+                                "Una mujer que cambia su cabello esta por cambiar su vida"</h4>
+                        </div>
+
                         <!-- <p class="mt-4">
                             <a href="#" class="text-red-500 hover:underline">Descubre nuestros servicios</a>
                         </p> -->
@@ -71,6 +70,24 @@ defineProps({
 
 <style>
 .bg-dots-darker {
-    background-image: url("./img/fondo_welcome.svg");
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("@/img/welc.webp");
+    background-size: 100% 100%;
+    background-position: center;
+
+}
+
+#textUno {
+    font-weight: bold;
+    color: #b5a20e;
+    font-size: 35px;
+}
+
+#textoDos {
+    font-weight: bold;
+    color: #090908;
+    font-size: 25px;
 }
 </style>
