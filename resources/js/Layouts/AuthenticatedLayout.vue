@@ -21,21 +21,10 @@ const closeSidebar = () => {
 </script>
 
 <template>
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-   <div class="flex justify-between h-16">
+    <div class="flex justify-between h-10">
       <div class="flex">
-                        </div>
-
-                        
-   <!-- Primary Navigation Menu -->
-  
-                        <div class="hidden sm:flex sm:items-center sm:ms-6">
-                            <!-- Settings Dropdown -->
-                            <div class="ms-3 relative">
-                               
-                            </div>
-                        </div>
-                  
+</div>
+               
    <!-- Botón del sidebard -->
    <button @click="toggleDropdown" data-drawer-target="separator-sidebar" data-drawer-toggle="separator-sidebar"
       aria-controls="separator-sidebar" type="button"
@@ -51,11 +40,16 @@ const closeSidebar = () => {
 </div>
 
 
+
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+
+
    <!-- elementos del sidebard -->
    <aside id="separator-sidebar"
       :class="{ 'translate-x-0': showingNavigationDropdown, '-translate-x-full': !showingNavigationDropdown }"
-      class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
-      aria-label="Sidebar">
+      class="fixed top-0 left-0 z-40 w-64 h-full transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
+     aria-label="Sidebar">
     
       
       <div class="h-full px-3 py-4 overflow-y-auto bg-zinc-950 dark:bg-zinc-950">
@@ -127,7 +121,6 @@ const closeSidebar = () => {
                                                 {{ $page.props.auth.user.name }}
 
                                                 <svg
-                                                
                                                     class="ms-2 -me-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20"
