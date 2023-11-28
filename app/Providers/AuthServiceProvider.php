@@ -23,9 +23,12 @@ class AuthServiceProvider extends ServiceProvider
     //agregando al rol SUPER-ADMIN todos los PERMISOS
     public function boot(): void
     {
+        $this->registerPolicies();
+
+        //agregamos el usuario Super Admin
+        // Otorga implícitamente todos los permisos a la función "Superadministrador"       
         Gate::before(function ($user, $ability) {
-            return $user->email == 'super_admin@mail.com' ?? null;
-            // return $user->hasRole('Super Admin') ? true : null;
+            return $user->email == 'admin@gmail.com' ?? null;
         });
     }
 }

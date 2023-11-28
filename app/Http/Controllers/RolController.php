@@ -16,13 +16,13 @@ class RolController extends Controller
     function __construct()
     {
       // Middleware para vista de roles
-      $this->middleware('permission: ver-rol | crear-rol | editar-rol | borar-rol', ['only' => ['index']]);
+      $this->middleware('permission:ver-rol | crear-rol | editar-rol | borrar-rol', ['only' => ['index']]);
       // Middleware para creación de roles  
-      $this->middleware('permission: crear-rol', ['only' => ['create', 'store']]);
+      $this->middleware('permission:crear-rol', ['only' => ['create', 'store']]);
       // Middleware para edición de roles
-      $this->middleware('permission: editar-rol', ['only' => ['edit', 'update']]);
+      $this->middleware('permission:editar-rol', ['only' => ['edit', 'update']]);
       // Middleware para borrado de roles
-      $this->middleware('permission: borar-rol', ['only' => ['destroy']]);
+      $this->middleware('permission:borrar-rol', ['only' => ['destroy']]);
     }
     // Obtiene lista paginada de roles
     public function index()
@@ -31,16 +31,16 @@ class RolController extends Controller
       $roles = Role::paginate(5);
       // Retorna vista de index con roles
       // return view('roles.index', compact('roles'));
-      return Inertia::render('roles/index', compact('roles'));
+      return Inertia::render('roles', compact('roles'));
     }
   
     public function create()
     {
-      $permissions = Permission::get();
+      $permission = Permission::get();
       // return view('roles.crear', compact('permission'));
       // Retorna vista de creación de roles con permisos
-      return Inertia::render('roles/crear', [
-        'permissions' => $permissions,
+      return Inertia::render('roles_agregar', [
+        'permission' => $permission,
       ]);
     }
   
@@ -48,19 +48,17 @@ class RolController extends Controller
     public function store(Request $request)
     {
       // Validación de datos
-      $this->validate(
-        $request,
-        [
-          'name' => 'required',
-          'permission' => 'required'
-        ]
-      );
+      $this->validate($request, [
+        'name' => 'required|unique:roles,name',
+        'permission' => 'required',
+    ]);
+    
       // Crea el rol
       $role = Role::create(['name' => $request->input('name')]);
       // Sincroniza permisos al rol
       $role->syncPermissions($request->input('permission'));
-          // Redirige a la vista de índice de roles utilizando Inertia
-          return Inertia::location(route('roles.index'));
+      // Redirige a la vista de índice de roles utilizando Inertia
+          return Inertia::location(route('roles'));
     }
   
   
@@ -73,13 +71,13 @@ class RolController extends Controller
     {
       $role = Role::find($id);
       $permission = Permission::get();
-      $rolePermission = DB::table('role_has_permissions')->where('role_has_permissions.role_id', $id)
-        ->pluck('role_haspermissions.permission_id', 'role_has_permissions.permission_id')
-        ->all();
-        return Inertia::render('roles/editar', [
+      $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
+      ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+      ->all();
+        return Inertia::render('roles_editar', [
           'role' => $role,
           'permission' => $permission,
-          'rolePermission' => $rolePermission,
+          'rolePermissions' => $rolePermissions,
       ]);
     }
   
@@ -102,7 +100,7 @@ class RolController extends Controller
   
       $role->syncPermissions($request->input('permission'));
       // Redirige a la vista de índice de roles utilizando Inertia
-      return Inertia::location(route('roles.index'));
+      return Inertia::location(route('roles'));
       }
   
     public function destroy(string $id)
@@ -112,5 +110,5 @@ class RolController extends Controller
       //por: 
       Role::find($id)->delete();
       // Redirige a la vista de índice de roles utilizando Inertia
-      return Inertia::location(route('roles.index'));  }
+      return Inertia::location(route('roles'));  }
   }

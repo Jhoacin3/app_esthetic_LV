@@ -24,10 +24,13 @@ Route::get('/dashboard', function () {
 // Route::get('/users', function () {
 //     return Inertia::render('users');
 // })->middleware(['auth', 'verified'])->name('users');
+// Route::get('/users', [UserController::class, 'index'])
+//     ->middleware(['auth', 'verified'])
+//     ->name('users.index');
 
 Route::group(['middleware'=>['auth']], function(){
-    Route::resource('roles',RolController::class);
     Route::resource('users',UserController::class);
+    Route::resource('roles',RolController::class);
     Route::resource('inventories',InventoryController::class);
 });
 

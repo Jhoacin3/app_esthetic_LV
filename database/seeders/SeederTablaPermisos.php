@@ -19,15 +19,15 @@ class SeederTablaPermisos extends Seeder
             'ver-rol',
             'crear-rol',
             'editar-rol',
-            'borar-rol',
+            'borrar-rol',
             //tabla inventarios
             'ver-inventory',
             'crear-inventory',
             'editar-inventory',
-            'borar-inventory',
+            'borrar-inventory',
         ];
-        foreach ($permisos as $permiso) {
-            Permission::create(['name'=> $permiso]);
+        foreach($permisos as $permiso) {
+            Permission::create(['name'=>$permiso]);
         }
     }
 }

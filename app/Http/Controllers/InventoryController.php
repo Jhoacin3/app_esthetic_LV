@@ -1,20 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// agregamos
+// use Spatie\Permission\Models\Role;
+// use Spatie\Permission\Models\Permission;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Inertia\Inertia;
 
 class InventoryController extends Controller
 {
-    //Constructor te permite realizar tareas de inicialización y configuración comunes para todas las acciones del controlador
+    //NOTA: Constructor te permite realizar tareas de inicialización y configuración comunes para todas las acciones del controlador
     function __construct()
     {
-        $this->middleware('permission: ver-inventory | crear-inventory | editar-inventory | borar-inventory')->only('index');
-        $this->middleware('permission: crear-inventory', ['only' => ['create', 'store']]);
+        $this->middleware('permission: ver-inventory | crear-inventory | editar-inventory | borrar-inventory')->only('index');
+        $this->middleware('permission: crear-inventory', ['only' => ['create', 'store']]);  
         $this->middleware('permission: editar-inventory', ['only' => ['edit', 'update']]);
-        $this->middleware('permission: borar-inventory', ['only' => ['destroy']]);
+        $this->middleware('permission: borrar-inventory', ['only' => ['destroy']]);
     }
 
 
@@ -22,7 +25,7 @@ class InventoryController extends Controller
     {
         $inventories = Inventory::paginate(5);
         // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('inventories/index', [
+        return Inertia::render('inventories', [
             'inventories' => $inventories,
         ]);
     }
@@ -31,7 +34,7 @@ class InventoryController extends Controller
     public function create()
     {
         // Renderiza la vista utilizando Inertia
-        return Inertia::render('inventories/crear');
+        return Inertia::render('inventories_crear');
     }
 
     //para el boton de guardar en crear...
@@ -44,7 +47,7 @@ class InventoryController extends Controller
         ]);
         Inventory::create($request->all());
 
-        return Inertia::location(route('inventories.index'));
+        return Inertia::location(route('inventories'));
     }
 
 
@@ -56,7 +59,7 @@ class InventoryController extends Controller
 
     public function edit(Inventory $inventorie)
     {
-        return Inertia::render('inventories/editar', [
+        return Inertia::render('inventories_editar', [
             //verificar
             'inventorie' => $inventorie,
         ]);
@@ -72,7 +75,7 @@ class InventoryController extends Controller
         ]);
         $inventorie->update($request->all());
 
-        return Inertia::location(route('inventories.index'));
+        return Inertia::location(route('inventories'));
 
         
     }
