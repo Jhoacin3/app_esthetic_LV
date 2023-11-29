@@ -21,8 +21,8 @@ const closeSidebar = () => {
 </script>
 
 <template>
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+      <div class="flex justify-between h-7">
          <div class="flex">
          </div>
 
@@ -167,6 +167,7 @@ const closeSidebar = () => {
 
 
 
+      <!-- àqui estoy poniendo los slot -->
       <div class="flex items-center justify-center min-h-screen">
 
          <div class="p-4 sm:ml-64">
@@ -188,8 +189,18 @@ const closeSidebar = () => {
                   <slot />
                </main>
             </header>
+            <div class="flex  justify-center min-h-screen">
+            <main>
+               <slot />
+               <!-- Slot para el contenido de las tablas -->
+               <slot name="table-content" />
+            </main>
          </div>
+
+         </div>
+
+
       </div>
-      </div>
+   </div>
 </template>
 
