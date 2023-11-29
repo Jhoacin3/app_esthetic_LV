@@ -17,7 +17,7 @@ import { Head } from '@inertiajs/vue3';
 
 </style>
 <template>
-    <Head title="Beauty Studio-Karolina Millares" />
+    <Head title="Beauty Studio" />
     <div class="background-container">
     <div class="py-1">
     <AuthenticatedLayout>

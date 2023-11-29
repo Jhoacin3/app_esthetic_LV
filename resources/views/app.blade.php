@@ -7,8 +7,11 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <!-- Dentro de la sección <head> de tu archivo app.blade.php -->
+        <link rel="icon" href="{{ asset('img/imagen2.png') }}" sizes="194x194" type="image/png">
+
+        <link rel="preconnect">
+        <link rel="stylesheet" />
 
         <!-- Scripts -->
         @routes
