@@ -8,7 +8,7 @@ import { Head } from '@inertiajs/vue3';
     position: relative;
     width: 100%;
     height:140vh; 
-    background-image: url('@/img/fondo_welcome.webp');
+    background-image: url('@/img/rum.jpg');
     background-size: 100% 100%; /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -39,7 +39,7 @@ import { Head } from '@inertiajs/vue3';
                     <!-- Tabla -->
                   <div class="overflow-x-auto border-t-4 border-yellow-500">
                     <table class="min-w-full  bg-opacity-50 border-yellow-500">
-                    <thead class="sm:table-header-group bg-yellow-100 ">
+                    <thead class="sm:table-header-group bg-yellow-50 ">
                                 
                                 <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                 <tr>
