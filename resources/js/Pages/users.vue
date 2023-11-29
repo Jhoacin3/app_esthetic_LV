@@ -48,7 +48,7 @@ import { Head } from '@inertiajs/vue3';
                                     <th class="py-2 px-4 border-b sm:table-cell">Correo</th>
                                     <!-- El resto de las columnas para pantallas más grandes -->
                                     <th class="py-2 px-4 border-b hidden lg:table-cell">Contraseña</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell ">Puesto</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell ">Rol</th>
                                     <th class="py-2 px-4 border-b  sm:table-cell">Acciones</th>
                                 </tr>
                             </thead>
