@@ -39,9 +39,7 @@ class RolController extends Controller
       $permission = Permission::get();
       // return view('roles.crear', compact('permission'));
       // Retorna vista de creación de roles con permisos
-      return Inertia::render('roles_agregar', [
-        'permission' => $permission,
-      ]);
+      return Inertia::render('roles_agregar',compact('permission'));
     }
   
     // Crea un nuevo rol
@@ -52,11 +50,10 @@ class RolController extends Controller
         'name' => 'required|unique:roles,name',
         'permission' => 'required',
     ]);
-    
-      // Crea el rol
-      $role = Role::create(['name' => $request->input('name')]);
-      // Sincroniza permisos al rol
-      $role->syncPermissions($request->input('permission'));
+
+    $role = Role::create(['name' => $request->input('name')]);
+    $role->syncPermissions($request->input('permission'));
+
       // Redirige a la vista de índice de roles utilizando Inertia
           return Inertia::location(route('roles'));
     }
@@ -70,35 +67,27 @@ class RolController extends Controller
     public function edit($id)
     {
       $role = Role::find($id);
-      $permission = Permission::get();
+        $permission = Permission::get();
+
       $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-      ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-      ->all();
-        return Inertia::render('roles_editar', [
-          'role' => $role,
-          'permission' => $permission,
-          'rolePermissions' => $rolePermissions,
-      ]);
+            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+            ->all();
+        return Inertia::render('roles_editar', compact('role','permission','rolePermissions'));
     }
   
   
     public function update(Request $request, string $id)
     {
-      $this->validate(
-        $request,
-        [
-          // analizar este:
-          // 'id' => 'required|exists:roles',
-          'name' => 'required',
-          'permission' => 'required'
-        ]
-      );
+      $this->validate($request, [
+        'name' => 'required',
+        'permission' => 'required',
+      ]);
+
       $role = Role::find($id);
-      $role->name = $request->input('name');
-      $role->save();
-  
-  
-      $role->syncPermissions($request->input('permission'));
+        $role->name = $request->input('name');
+        $role->save();
+    
+        $role->syncPermissions($request->input('permission'));
       // Redirige a la vista de índice de roles utilizando Inertia
       return Inertia::location(route('roles'));
       }
@@ -108,7 +97,7 @@ class RolController extends Controller
       //sustituir
       // DB::table('roles')->where('id', $id)->delete();
       //por: 
-      Role::find($id)->delete();
-      // Redirige a la vista de índice de roles utilizando Inertia
-      return Inertia::location(route('roles'));  }
+      DB::table("roles")->where('id',$id)->delete();
+        return redirect()->route('roles.index');    
+    }
   }

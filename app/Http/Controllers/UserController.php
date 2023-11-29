@@ -19,18 +19,14 @@ class UserController extends Controller
     {
         $users = User::paginate(10);
 
-        return Inertia::render('users', [
-            'users' => $users,
-        ]);
+        return Inertia::render('users', compact('users'));
     }
 
     public function create()
     {
         //para poder crear un rol del empleado
         $roles = Role::pluck('name', 'name')->all();
-        return Inertia::render('users_agregar', [
-            'roles' => $roles,
-        ]);
+        return Inertia::render('users_agregar', compact('roles'));
     }
 
     public function store(Request $request)
@@ -63,11 +59,7 @@ class UserController extends Controller
         //lo mismo pero con el rol
         $roles = Role::pluck('name', 'name')->all();
         $userRoles = $user->$roles->pluck('name', 'name')->all();
-        return Inertia::render('users_editar', [
-            'user' => $user,
-            'roles' => $roles,
-            'userRoles' => $userRoles,
-        ]);
+        return Inertia::render('users_editar', compact('user', 'roles', 'userRoles'));
     }
 
     public function update(Request $request, string $id)
@@ -85,10 +77,12 @@ class UserController extends Controller
         } else {
             $input = Arr::except($input, array('password'));
         }
+
         $user = User::find($id);
         $user->update($input);
         //analizar la siguiente linea
         DB::table('model_has_roles')->where('model_id', $id)->delete();
+        $user->assignRole($request->input('roles'));
         return Inertia::location(route('users'));
     }
 
@@ -96,5 +90,6 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return Inertia::location(route('users'));
+        
     }
 }
