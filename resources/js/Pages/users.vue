@@ -28,11 +28,11 @@ import { Head } from '@inertiajs/vue3';
             <div class="py-10 ">
 
                 <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-5 text-3xl font-bold text-black">Empleados</div>
+                    <div class="text-3xl font-bold text-black">Empleados</div>
                     <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                     <!-- Botón de Agregar -->
                     <div class="mb-4">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:shadow-md">Agregar</button>
+                        <button class="mt-8 bg-blue-500 text-white px-4 py-2 rounded hover:shadow-md">Agregar</button>
 
                     </div>
 
@@ -48,7 +48,7 @@ import { Head } from '@inertiajs/vue3';
                                     <th class="py-2 px-4 border-b sm:table-cell">Correo</th>
                                     <!-- El resto de las columnas para pantallas más grandes -->
                                     <th class="py-2 px-4 border-b hidden lg:table-cell">Contraseña</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell ">Rol</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell ">Puesto</th>
                                     <th class="py-2 px-4 border-b  sm:table-cell">Acciones</th>
                                 </tr>
                             </thead>

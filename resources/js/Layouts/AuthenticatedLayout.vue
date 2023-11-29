@@ -195,6 +195,20 @@ const closeSidebar = () => {
                <slot name="table-content" />
             </main>
          </div>
+         <div class="flex  justify-center min-h-screen">
+         <main>
+               <slot />
+               <!-- Slot para el contenido de las tablas -->
+               <slot name="table-content-Roles" />
+            </main>
+         </div>
+         <div class="flex  justify-center min-h-screen">
+         <main>
+               <slot />
+               <!-- Slot para el contenido de las tablas -->
+               <slot name="table-content-Inventarios" />
+            </main>
+         </div>
 
       </div>
    </div>
