@@ -24,7 +24,7 @@ import { Head } from '@inertiajs/vue3';
 
 </style>
 <template>
-    <Head title="Inicio" />
+    <Head title="Beauty Studio-Karolina Millares" />
     <div class="background-container">
     <AuthenticatedLayout>
         <template #header>

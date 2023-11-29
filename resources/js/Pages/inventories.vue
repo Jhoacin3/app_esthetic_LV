@@ -17,7 +17,7 @@ import { Head } from '@inertiajs/vue3';
 
 </style>
 <template>
-    <Head title="Usuarios" />
+    <Head title="Beauty Studio-Karolina Millares" />
     <div class="background-container">
     <div class="py-1">
     <AuthenticatedLayout>
@@ -43,27 +43,25 @@ import { Head } from '@inertiajs/vue3';
                                 
                                 <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                 <tr>
-                                    <th class="py-2 px-4 border-b sm:table-cell">ID</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Tipo</th>
-                                    <th class="py-2 px-4 border-b sm:table-cell">Nombre</th>
-                                    <!-- El resto de las columnas para pantallas más grandes -->
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Cantidad</th>
-                                    <th class="py-2 px-4 border-b  sm:table-cell">Acciones</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell">ID</th>
+                                    <th class="py-2 px-4 border-b sm::table-cell">Descripcion</th>
+                                    <th class="py-2 px-4 border-b sm::table-cell">Cantidad</th>
+                                    <th class="py-2 px-4 border-b sm:table-cell">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="sm:table-row-group ">
                                 <!-- Contenido de la tabla -->
                                 <!-- Ejemplo de una fila, repite según tus datos -->
                                 <tr class="sm:table-row">
-                                    <td class="py-2 px-4 border-b sm:table-cell">1</td>
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell">capilares</td>
-                                    <td class="py-2 px-4 border-b sm:table-cell">Tinte</td>
+                                    <td class="py-2 px-4 border-b hidden lg:table-cell">1</td>
+                                    <td class="py-2 px-4 border-b sm:table-cell">capilares</td>
                                     <!-- El resto de las columnas para pantallas más grandes -->
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">27</td>
-                                    <td class="py-2 px-4 border-b  sm:table-cell space-x-2">
-                                        <button class="bg-green-500 text-white  px-2 py-1 rounded  hover:shadow-md">Editar</button>
-                                        <button class="bg-red-500 text-white px-2 py-1 rounded  hover:shadow-md">Borrar</button>
-                                    </td>
+                                    <td class="py-2 px-4 border-b sm::table-cell ">27</td>
+                                 <td class="py-2 px-4 border-b  sm:table-cell space-x-2">
+                                    <div class="flex flex-col sm:flex-row sm:gap-x-2">
+                                        <button class="bg-green-500 text-white  px-1.5 py-1 rounded  hover:shadow-md">Editar</button>
+                                        <button class="bg-red-500 text-white px-1.5 py-1 rounded  hover:shadow-md">Borrar</button>
+                                    </div></td>
                                 </tr>
 
                             </tbody>

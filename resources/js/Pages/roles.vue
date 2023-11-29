@@ -17,7 +17,7 @@ import { Head } from '@inertiajs/vue3';
 
 </style>
 <template>
-    <Head title="Usuarios" />
+    <Head title="Beauty Studio-Karolina Millares" />
     <div class="background-container">
     <div class="py-1">
     <AuthenticatedLayout>
@@ -44,12 +44,10 @@ import { Head } from '@inertiajs/vue3';
                                 <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                 <tr>
                                     <th class="py-2 px-4 border-b sm:table-cell">ID</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Nombre</th>
-                                    <th class="py-2 px-4 border-b sm:table-cell">Correo</th>
-                                    <!-- El resto de las columnas para pantallas más grandes -->
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Contraseña</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell ">Rol</th>
-                                    <th class="py-2 px-4 border-b  sm:table-cell">Acciones</th>
+                                    <th class="py-2 px-4 border-b sm:table-cell">Nombre</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Correo</th>
+                                    <th class="py-2 px-4 border-b sm:table-cell">Rol</th>
+                                    <th class="py-2 px-4 border-b sm:table-cell">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="sm:table-row-group ">
@@ -57,15 +55,15 @@ import { Head } from '@inertiajs/vue3';
                                 <!-- Ejemplo de una fila, repite según tus datos -->
                                 <tr class="sm:table-row">
                                     <td class="py-2 px-4 border-b sm:table-cell">1</td>
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell">Nombre Ejemplo</td>
-                                    <td class="py-2 px-4 border-b sm:table-cell">correo@example.com</td>
-                                    <!-- El resto de las columnas para pantallas más grandes -->
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">********</td>
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">Rol Ejemplo</td>
-                                    <td class="py-2 px-4 border-b  sm:table-cell space-x-2">
+                                    <td class="py-2 px-4 border-b sm:table-cell">Nombre Ejemplo</td>
+                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">mrubi366@gmail.com</td>
+                                    <td class="py-2 px-4 border-b sm:table-cell ">Rol Ejemplo</td>
+                                    <td class="py-2 px-4 border-b sm:table-cell space-x-2">
+                                        <div class="flex flex-col sm:flex-row sm:gap-x-2">
                                         <button class="bg-green-500 text-white  px-2 py-1 rounded  hover:shadow-md">Editar</button>
                                         <button class="bg-red-500 text-white px-2 py-1 rounded  hover:shadow-md">Borrar</button>
-                                    </td>
+                                    </div>
+                                </td>
                                 </tr>
 
                             </tbody>
