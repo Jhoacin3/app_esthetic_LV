@@ -25,16 +25,14 @@ class InventoryController extends Controller
     {
         $inventories = Inventory::paginate(5);
         // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('inventories', [
-            'inventories' => $inventories,
-        ]);
+        return Inertia::render('inventories', ['inventories' => $inventories]);
     }
 
 
     public function create()
     {
         // Renderiza la vista utilizando Inertia
-        return Inertia::render('inventories_crear');
+        return Inertia::render('inventories_agregar');
     }
 
     //para el boton de guardar en crear...
