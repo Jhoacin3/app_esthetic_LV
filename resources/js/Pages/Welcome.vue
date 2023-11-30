@@ -52,7 +52,7 @@ defineProps({
                     <!-- los del front: Texto de bienvenida a la izquierda -->
                     <div class="md:col-span-1">
                         <div class="sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                            <h2 id="textUno" class="text-gold-300 font-semibold mb-4">¡Hola de nuevo!</h2>
+                            <h2 id="textUno" class="text-gold-300 font-semibold mb-4">¡Bienvenido!</h2>
                             <br>
                             <h4 id="textoDos" class="text-gray-100 font-semibold mb-9">
                                 "Una mujer que cambia su cabello esta por cambiar su vida"</h4>
@@ -73,7 +73,7 @@ defineProps({
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url("@/img/welc.webp");
+    background-image: url("@/img/Inicio123.jpg");
     background-size: 100% 100%;
     background-position: center;
 
@@ -81,13 +81,16 @@ defineProps({
 
 #textUno {
     font-weight: bold;
-    color: #b5a20e;
-    font-size: 35px;
+    color: #f11c99;
+    font-size: 40px;
 }
 
 #textoDos {
     font-weight: bold;
     color: #090908;
     font-size: 25px;
+    
 }
+
+
 </style>
