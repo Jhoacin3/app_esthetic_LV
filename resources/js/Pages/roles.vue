@@ -8,12 +8,19 @@ import { Head } from '@inertiajs/vue3';
     position: relative;
     width: 100%;
     height:140vh; 
-    background-image: url('@/img/rum.jpg');
+    background-image: url('@/img/Fondo1.webp');
     background-size: 100% 100%; /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
     background-repeat: no-repeat; /* Evita que la imagen se repita */
+   
 }
-
+/* Media query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .background-container {
+        height: 100vh; /* Cambia la altura para dispositivos más pequeños */
+        background-size: cover; /* Ajusta el tamaño de la imagen para que cubra el contenedor */
+    }
+}
 
 </style>
 <template>
@@ -32,14 +39,14 @@ import { Head } from '@inertiajs/vue3';
                     <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                     <!-- Botón de Agregar -->
                     <div class="mb-4">
-                        <button class="mt-8 bg-blue-500 text-white px-4 py-2 rounded hover:shadow-md">Agregar</button>
+                        <button class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">Agregar</button>
 
                     </div>
 
                     <!-- Tabla -->
-                  <div class="overflow-x-auto border-t-4 border-yellow-500">
-                    <table class="min-w-full  bg-opacity-50 border-yellow-500">
-                    <thead class="sm:table-header-group bg-yellow-50 ">
+                  <div class="overflow-x-auto border-yellow-500">
+                    <table class="min-w-full bg-zinc-50 border-yellow-500">
+                    <thead class="sm:table-header-group bg-red-300 ">
                                 
                                 <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                 <tr>
@@ -60,7 +67,7 @@ import { Head } from '@inertiajs/vue3';
                                     <td class="py-2 px-4 border-b sm:table-cell ">Rol Ejemplo</td>
                                     <td class="py-2 px-4 border-b sm:table-cell space-x-2">
                                         <div class="flex flex-col sm:flex-row sm:gap-x-2">
-                                        <button class="bg-green-500 text-white  px-2 py-1 rounded  hover:shadow-md">Editar</button>
+                                        <button class="bg-sky-500 text-white  px-2 py-1 rounded  hover:shadow-md">Editar</button>
                                         <button class="bg-red-500 text-white px-2 py-1 rounded  hover:shadow-md">Borrar</button>
                                     </div>
                                 </td>

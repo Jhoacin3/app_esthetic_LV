@@ -8,10 +8,18 @@ import { Head } from '@inertiajs/vue3';
     position: relative;
     width: 100%;
     height:140vh; 
-    background-image: url('@/img/inicio.webp');
+    background-image: url('@/img/Fondo1.webp');
     background-size: 100% 100%; /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
     background-repeat: no-repeat; /* Evita que la imagen se repita */
+   
+}
+/* Media query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .background-container {
+        height: 100vh; /* Cambia la altura para dispositivos más pequeños */
+        background-size: cover; /* Ajusta el tamaño de la imagen para que cubra el contenedor */
+    }
 }
 
   #miTexto {

@@ -60,9 +60,9 @@ const closeSidebar = () => {
          <!-- elementos del sidebard -->
          <aside id="separator-sidebar"
             :class="{ 'translate-x-0': showingNavigationDropdown, '-translate-x-full': !showingNavigationDropdown }"
-            class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
-            aria-label="Sidebar">
-
+            
+  class="fixed top-0 left-0 z-40 w-64 h-full transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
+      aria-label="Sidebar"> 
 
             <div class="h-full px-3 py-4 overflow-y-auto bg-zinc-950 dark:bg-zinc-950">
                <center>
@@ -175,7 +175,7 @@ const closeSidebar = () => {
             <!-- Page Heading -->
             <header
                class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-slate-50 md:text-5xl lg:text-6xl dark:text-white"
-               style="background-color: rgba(255, 255, 255, 0.5);" v-if="$slots.header">
+               style="background-color: rgba(255, 255, 255, 0.594);" v-if="$slots.header">
                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                   <slot name="header" />
 
