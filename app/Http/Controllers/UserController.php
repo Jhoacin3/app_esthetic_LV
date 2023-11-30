@@ -17,14 +17,15 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::paginate(5);
+        
 
-        return Inertia::render('users', compact('users'));
+        return Inertia::render('users', ['users' => $users]);
     }
 
     public function create()
     {
-        //para poder crear un rol del empleado
+        // Para poder crear un rol del empleado
         $roles = Role::pluck('name', 'name')->all();
         return Inertia::render('users_agregar', compact('roles'));
     }
@@ -52,14 +53,13 @@ class UserController extends Controller
     //     //
     // }
 
-    public function edit(string $id)
+    public function edit($id)
     {
         //capturar los datos del usuario desde la tabla
         $user = User::find($id);
-        //lo mismo pero con el rol
-        $roles = Role::pluck('name', 'name')->all();
-        $userRoles = $user->$roles->pluck('name', 'name')->all();
-        return Inertia::render('users_editar', compact('user', 'roles', 'userRoles'));
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+        return Inertia::render('users_editar', compact('user', 'roles', 'userRole'));
     }
 
     public function update(Request $request, string $id)

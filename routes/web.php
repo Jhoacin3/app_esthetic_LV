@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 //     ->name('users.index');
 
 Route::group(['middleware'=>['auth']], function(){
+    
     Route::resource('users',UserController::class);
     Route::resource('roles',RolController::class);
     Route::resource('inventories',InventoryController::class);
