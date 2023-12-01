@@ -7,7 +7,7 @@ import { Head } from '@inertiajs/vue3';
     position: relative;
     width: 100%;
     height: 140vh;
-    background-image: url('@/img/rum.jpg');
+    background-image: url('@/img/Fondo1.webp');
     background-size: 100% 100%;
     /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
@@ -27,8 +27,9 @@ import { Head } from '@inertiajs/vue3';
                     <div class="py-10 ">
 
                         <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                            <h1 class="text-3xl font-bold text-black">Servicios</h1>
-                            <h1 class="text-1xl font-bold text-black">ruby, comente casi todo lo que programe en esta vista, vuelve a copiar y pegar una tabla con los campos predeterminado que les puse, luego yo los programo</h1>
+                            <div class="text-3xl font-bold text-black">
+                               Servicios
+                            </div>
                             <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                             <!-- Botón de Agregar -->
                             <br>
@@ -41,10 +42,9 @@ import { Head } from '@inertiajs/vue3';
 
 
                             <!-- Tabla -->
-                            <div class="overflow-x-auto border-t-4 border-yellow-500">
-                                <table class="min-w-full  bg-opacity-50 border-yellow-500">
-                                    <thead class="sm:table-header-group bg-yellow-50 ">
-
+                            <div class="overflow-x-auto   border-yellow-50">
+                                <table class="min-w-full bg-zinc-50 border-yellow-50">
+                                    <thead class="sm:table-header-group bg-red-300">
                                         <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                         <tr>
                                             <th class="py-2 px-4 border-b sm::table-cell">ID</th>
