@@ -28,6 +28,13 @@ import { Head } from '@inertiajs/vue3';
     color:#0f0f0f;
     font-size: 45px; /* Puedes ajustar el tamaño del texto según tus necesidades */
 }
+h2.text-4xl {
+    font-size: 2.5rem; /* Ajusta el tamaño de la fuente */
+    /* Otros estilos opcionales para mejorar la apariencia */
+    font-weight: bold; /* Para hacerlo más audaz si lo deseas */
+    color: #333; /* Cambia el color del texto si es necesario */
+    /* Ajustes adicionales según tus preferencias */
+}
 
 
 </style>
@@ -38,7 +45,10 @@ import { Head } from '@inertiajs/vue3';
         <template #header>
             <center><p id="miTexto" class="text-center text-gray-500 dark:text-gray-400">
                 «Bienvenido al sistema».</p></center>
-        </template>     
+            
+        </template>   
+        
+
     </AuthenticatedLayout>
     </div>
 </template>
