@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 // agregamos
-// use Spatie\Permission\Models\Role;
-// use Spatie\Permission\Models\Permission;
-// use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Inertia\Inertia;
@@ -82,6 +82,6 @@ class InventoryController extends Controller
     public function destroy(string $id)
     {
         Inventory::find($id)->delete();
-        return Inertia::location(route('inventories.index'));
+        return Inertia::location(route('inventories'));
     }
 }
