@@ -36,7 +36,7 @@ import { Head } from "@inertiajs/vue3";
 <template>
     <Head title="Beauty Studio" />
     <div class="background-container">
-        <div class="py-1">
+        
             <AuthenticatedLayout>
                 <template #table-content>
                     <div class="py-10">
@@ -126,6 +126,6 @@ import { Head } from "@inertiajs/vue3";
                     </div>
                 </template>
             </AuthenticatedLayout>
-        </div>
+       
     </div>
 </template>

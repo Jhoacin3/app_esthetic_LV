@@ -16,7 +16,7 @@ import { Head } from '@inertiajs/vue3';
 /* Media query para dispositivos más pequeños */
 @media screen and (max-width: 768px) {
     .background-container {
-        height: 100vh; /* Cambia la altura para dispositivos más pequeños */
+        height: 110vh; /* Cambia la altura para dispositivos más pequeños */
         background-size: cover; /* Ajusta el tamaño de la imagen para que cubra el contenedor */
     }
 }
@@ -24,7 +24,7 @@ import { Head } from '@inertiajs/vue3';
 <template>
     <Head title="Beauty Studio" />
     <div class="background-container">
-        <div class="py-1">
+        
             <AuthenticatedLayout>
 
                 <template #table-content-Inventarios>
@@ -92,6 +92,6 @@ import { Head } from '@inertiajs/vue3';
                 </template>
 
             </AuthenticatedLayout>
-        </div>
+        
     </div>
 </template>
