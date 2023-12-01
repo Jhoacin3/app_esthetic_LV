@@ -45,7 +45,7 @@ import { Head } from "@inertiajs/vue3";
             <AuthenticatedLayout>
                 <template #content-Agregar>
                     <div class="py-5 px-15">
-
+                        <div class="bg-white px-5 py-8 overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="text-3xl  font-bold text-black">
                                 <center> Agregar Empleados</center>
                             </div>
@@ -83,7 +83,7 @@ import { Head } from "@inertiajs/vue3";
     </div>
 </form>
                      
-                    </div>
+                    </div>  </div>
                 </template>
             </AuthenticatedLayout>
        
