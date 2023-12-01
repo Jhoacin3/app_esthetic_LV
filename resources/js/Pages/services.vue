@@ -35,7 +35,7 @@ import { Head } from '@inertiajs/vue3';
             <div class="py-10 ">
 
                 <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class=" text-3xl font-bold text-black">Rol de Empleados</div>
+                    <div class=" text-3xl font-bold text-black">Servicios</div>
                     <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                     <!-- Botón de Agregar -->
                     <div class="mb-4">
@@ -50,10 +50,10 @@ import { Head } from '@inertiajs/vue3';
                                 
                                 <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                 <tr>
-                                    <th class="py-2 px-4 border-b sm:table-cell">ID</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell">ID</th>
                                     <th class="py-2 px-4 border-b sm:table-cell">Nombre</th>
-                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Correo</th>
-                                    <th class="py-2 px-4 border-b sm:table-cell">Rol</th>
+                                    <th class="py-2 px-4 border-b hidden lg:table-cell">Descripcion</th>
+                                    <th class="py-2 px-4 border-b sm:table-cell">Precio</th>
                                     <th class="py-2 px-4 border-b sm:table-cell">Acciones</th>
                                 </tr>
                             </thead>
@@ -61,10 +61,10 @@ import { Head } from '@inertiajs/vue3';
                                 <!-- Contenido de la tabla -->
                                 <!-- Ejemplo de una fila, repite según tus datos -->
                                 <tr class="sm:table-row">
-                                    <td class="py-2 px-4 border-b sm:table-cell">1</td>
+                                    <td class="py-2 px-4 border-b hidden lg:table-cell">1</td>
                                     <td class="py-2 px-4 border-b sm:table-cell">Nombre Ejemplo</td>
-                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">mrubi366@gmail.com</td>
-                                    <td class="py-2 px-4 border-b sm:table-cell ">Rol Ejemplo</td>
+                                    <td class="py-2 px-4 border-b hidden lg:table-cell ">planchado</td>
+                                    <td class="py-2 px-4 border-b sm:table-cell ">$100</td>
                                     <td class="py-2 px-4 border-b sm:table-cell space-x-2">
                                         <div class="flex flex-col sm:flex-row sm:gap-x-2">
                                         <button class="bg-sky-500 text-white  px-2 py-1 rounded  hover:shadow-md">Editar</button>

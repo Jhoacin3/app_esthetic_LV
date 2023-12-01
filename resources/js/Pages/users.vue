@@ -18,19 +18,25 @@ import { Head } from "@inertiajs/vue3";
 .background-container {
     position: relative;
     width: 100%;
-    height: 140vh;
-    background-image: url("@/img/rum.jpg");
-    background-size: 100% 100%;
-    /* Hace que la imagen ocupe todo el contenedor */
+    height:140vh; 
+    background-image: url('@/img/Fondo1.webp');
+    background-size: 100% 100%; /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
-    background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+   
+}
+/* Media query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .background-container {
+        height: 100vh; /* Cambia la altura para dispositivos más pequeños */
+        background-size: cover; /* Ajusta el tamaño de la imagen para que cubra el contenedor */
+    }
 }
 </style>
 <template>
     <Head title="Beauty Studio" />
     <div class="background-container">
-        <div class="py-1">
+        
             <AuthenticatedLayout>
                 <template #table-content>
                     <div class="py-10">
@@ -50,28 +56,27 @@ import { Head } from "@inertiajs/vue3";
                             </div>
 
                             <!-- Tabla -->
-                            <div class="overflow-x-auto border-t-4 border-yellow-500">
-                                <table class="min-w-full bg-opacity-50 border-yellow-500">
-                                    <thead class="sm:table-header-group bg-yellow-50">
+                            <div class="overflow-x-auto   border-yellow-50">
+                                <table class="min-w-full bg-zinc-50 border-yellow-50">
+                                    <thead class="sm:table-header-group bg-red-300">
                                         <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
                                         <tr>
                                             <th class="py-2 px-4 border-b sm:table-cell">
                                                 ID
                                             </th>
-                                            <th class="py-2 px-4 border-b hidden lg:table-cell">
+                                            <th class="py-2 px-4 border-b sm:table-cell">
                                                 Nombre
                                             </th>
-                                            <th class="py-2 px-4 border-b sm:table-cell">
+                                            <th class="py-2 px-4 border-b hidden lg:table-cell">
                                                 Correo
                                             </th>
-                                            <!-- El resto de las columnas para pantallas más grandes -->
-
-                                            <th class="py-2 px-4 border-b hidden lg:table-cell">
+                                            <th class="py-2 px-4 border-b sm:table-cell">
                                                 Rol
                                             </th>
                                             <th class="py-2 px-4 border-b sm:table-cell">
                                                 Acciones
                                             </th>
+                                
                                         </tr>
                                     </thead>
 
@@ -83,13 +88,13 @@ import { Head } from "@inertiajs/vue3";
                                             <td class="py-2 px-4 border-b sm:table-cell">
                                                 {{ user.id }}
                                             </td>
-                                            <td class="py-2 px-4 border-b hidden lg:table-cell">
+                                            <td class="py-2 px-4 border-b sm:table-cell">
                                                 {{ user.name }}
                                             </td>
-                                            <td class="py-2 px-4 border-b sm:table-cell">
+                                            <td class="py-2 px-4 border-b hidden lg:table-cell">
                                                 {{ user.email }}
                                             </td>
-                                            <td class="py-2 px-4 border-b hidden lg:table-cell">
+                                            <td class="py-2 px-4 border-b sm:table-cell">
                                                 <span v-for="role in user.roles" :key="role.id"
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                     {{ role.title }}
@@ -98,7 +103,7 @@ import { Head } from "@inertiajs/vue3";
                                             <td class="py-2 px-4 border-b sm:table-cell space-x-2">
 
                                                 <div class="flex flex-col sm:flex-row sm:gap-x-2">
-                                                    <a :href="route('users.edit', user.id)" class="btn btn-info">
+                                                    <a :href="route('users.edit', user.id)" class="btn bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md btn-info">
                                                         Editar
                                                     </a>
 
@@ -121,6 +126,6 @@ import { Head } from "@inertiajs/vue3";
                     </div>
                 </template>
             </AuthenticatedLayout>
-        </div>
+       
     </div>
 </template>

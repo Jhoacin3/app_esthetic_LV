@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 // agregamos
-// use Spatie\Permission\Models\Role;
-// use Spatie\Permission\Models\Permission;
-// use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Inertia\Inertia;
@@ -25,16 +25,14 @@ class InventoryController extends Controller
     {
         $inventories = Inventory::paginate(5);
         // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('inventories', [
-            'inventories' => $inventories,
-        ]);
+        return Inertia::render('inventories', ['inventories' => $inventories]);
     }
 
 
     public function create()
     {
         // Renderiza la vista utilizando Inertia
-        return Inertia::render('inventories_crear');
+        return Inertia::render('inventories_agregar');
     }
 
     //para el boton de guardar en crear...
@@ -84,6 +82,6 @@ class InventoryController extends Controller
     public function destroy(string $id)
     {
         Inventory::find($id)->delete();
-        return Inertia::location(route('inventories.index'));
+        return Inertia::location(route('inventories'));
     }
 }

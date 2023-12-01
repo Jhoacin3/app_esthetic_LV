@@ -60,9 +60,9 @@ const closeSidebar = () => {
          <!-- elementos del sidebard -->
          <aside id="separator-sidebar"
             :class="{ 'translate-x-0': showingNavigationDropdown, '-translate-x-full': !showingNavigationDropdown }"
-            class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
-            aria-label="Sidebar">
-
+            
+  class="fixed top-0 left-0 z-40 w-64 h-full transition-transform sm:translate-x-0 bg-red-50 dark:bg-red-800"
+      aria-label="Sidebar"> 
 
             <div class="h-full px-3 py-4 overflow-y-auto bg-zinc-950 dark:bg-zinc-950">
                <center>
@@ -72,7 +72,7 @@ const closeSidebar = () => {
                   <li>
 
                      <ResponsiveNavLink href='/dashboard'
-                        class="flex items-center mt-20 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
+                        class="flex items-center mt-20 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512" fill="orange">
                            <!-- Cambiar el color a amarillo -->
                            <path
@@ -84,7 +84,7 @@ const closeSidebar = () => {
 
                   <li>
                      <ResponsiveNavLink href="#"
-                        class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
+                        class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" fill="orange">
                            <path
                               d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z" />
@@ -104,7 +104,7 @@ const closeSidebar = () => {
                      </ResponsiveNavLink>
                   </li>
                   <li>
-                     <ResponsiveNavLink href="#"
+                     <ResponsiveNavLink href="/services"
                         class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 18 20">
                            <path
@@ -175,39 +175,24 @@ const closeSidebar = () => {
             <!-- Page Heading -->
             <header
                class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-slate-50 md:text-5xl lg:text-6xl dark:text-white"
-               style="background-color: rgba(255, 255, 255, 0.5);" v-if="$slots.header">
+               style="background-color: rgba(255, 255, 255, 0.594);" v-if="$slots.header">
                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                   <slot name="header" />
 
-               </div>
+               </div></header>
                <!-- Page Content -->
                <main>
-
+                  <div class="flex  justify-center min-h-screen">
                   <slot />
-               </main>
-            </header>
+                  <slot name="table-content" />
+                  <slot name="table-content-Roles" />
+                  <slot name="table-content-Inventarios" />
+                  <slot name="content-Agregar" />
+                  
+                 </div> 
 
-         </div>
-         <div class="flex  justify-center min-h-screen">
-         <main>
-               <slot />
-               <!-- Slot para el contenido de las tablas -->
-               <slot name="table-content" />
-            </main>
-         </div>
-         <div class="flex  justify-center min-h-screen">
-         <main>
-               <slot />
-               <!-- Slot para el contenido de las tablas -->
-               <slot name="table-content-Roles" />
-            </main>
-         </div>
-         <div class="flex  justify-center min-h-screen">
-         <main>
-               <slot />
-               <!-- Slot para el contenido de las tablas -->
-               <slot name="table-content-Inventarios" />
-            </main>
+               </main>   
+
          </div>
 
       </div>

@@ -46,12 +46,9 @@ import { Head } from "@inertiajs/vue3";
             <template #content-Agregar>
                 <div class="py-5 px-15">
                     <div class="bg-white px-5 py-8 overflow-hidden shadow-sm sm:rounded-lg">
-
                         <div class="text-3xl  font-bold text-black">
-                            <center> Agregar Rol </center>
+                            <center> Agregar Servicios</center>
                         </div>
-
-
                         <form class="mt-10 px-4 space-y-4">
                             <div>
                                 <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
@@ -64,13 +61,13 @@ import { Head } from "@inertiajs/vue3";
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
-                                <input id="email" name="email" type="email" required
+                                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+                                <input id="descripcion" name="descripcion" type="text" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
-                                <label for="rol" class="block text-sm font-medium text-gray-700">Rol</label>
-                                <input id="rol" name="rol" type="text" required
+                                <label for="cantidad" class="block text-sm font-medium text-gray-700">Cantidad</label>
+                                <input id="cantidad" name="cantidad" type="text" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
