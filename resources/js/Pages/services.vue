@@ -27,15 +27,16 @@ import { Head } from '@inertiajs/vue3';
                     <div class="py-10 ">
 
                         <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                            <div class="text-3xl font-bold text-black">Inventario de herramientas y productos</div>
+                            <h1 class="text-3xl font-bold text-black">Servicios</h1>
+                            <h1 class="text-1xl font-bold text-black">ruby, comente casi todo lo que programe en esta vista, vuelve a copiar y pegar una tabla con los campos predeterminado que les puse, luego yo los programo</h1>
                             <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                             <!-- Botón de Agregar -->
                             <br>
                             <div class="mb-4">
-                                <a :href="route('inventories.create')"
+                                <!-- <a :href="route('inventories.create')"
                                     class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
                                     Agregar
-                                </a>
+                                </a> -->
                             </div>
 
 
@@ -54,17 +55,16 @@ import { Head } from '@inertiajs/vue3';
                                         </tr>
                                     </thead>
                                     <tbody class="sm:table-row-group ">
-                                        <tr v-for="inventorie in $page.props.inventories.data" :key="inventorie.id">
-                                            <!-- Contenido de la tabla -->
-                                            <!-- Ejemplo de una fila, repite según tus datos -->
-                                            <td class="py-2 px-4 border-b hidden lg:table-cell">{{ inventorie.id }}</td>
+                                        <!-- <tr v-for="inventorie in $page.props.inventories.data" :key="inventorie.id"> 
+                                             Contenido de la tabla -->
+                                            <!-- <td class="py-2 px-4 border-b hidden lg:table-cell">{{ inventorie.id }}</td>
 
                                             <td class="py-2 px-4 border-b sm:table-cell">{{ inventorie.name }}</td>
                                             <td class="py-2 px-4 border-b sm:table-cell">{{ inventorie.description }}</td>
-                                            <!-- El resto de las columnas para pantallas más grandes -->
-                                            <td class="py-2 px-4 border-b sm::table-cell ">{{ inventorie.quantity }}</td>
+                                            El resto de las columnas para pantallas más grandes
+                                            <td class="py-2 px-4 border-b sm::table-cell ">{{ inventorie.quantity }}</td> -->
                                             <td class="py-2 px-4 border-b  sm:table-cell space-x-2">
-                                                <div class="flex flex-col sm:flex-row sm:gap-x-2">
+                                                <!-- <div class="flex flex-col sm:flex-row sm:gap-x-2">
                                                     <a :href="route('inventories.edit', inventorie.id)" class="btn btn-info">
                                                         Editar
                                                     </a>
@@ -73,10 +73,10 @@ import { Head } from '@inertiajs/vue3';
                                                         class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md">
                                                         Borrar
                                                     </button>
-                                                </div>
+                                                </div> -->
                                             </td>
 
-                                        </tr>
+                                        <!-- </tr> -->
                                     </tbody>
                                 </table>
                             </div>

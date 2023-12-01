@@ -104,7 +104,7 @@ const closeSidebar = () => {
                      </ResponsiveNavLink>
                   </li>
                   <li>
-                     <ResponsiveNavLink href="#"
+                     <ResponsiveNavLink href="/services"
                         class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 18 20">
                            <path
