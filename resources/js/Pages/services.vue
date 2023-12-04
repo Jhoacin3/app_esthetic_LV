@@ -63,25 +63,29 @@ import { Head } from '@inertiajs/vue3';
                                     </tr>
                                 </thead>
                                 <tbody class="sm:table-row-group ">
+                                    <tr v-for="service in $page.props.services.data" :key="service.id">
+
                                     <!-- Contenido de la tabla -->
                                     <!-- Ejemplo de una fila, repite según tus datos -->
-                                    <tr class="sm:table-row">
-                                        <td class="py-2 px-4 border-b hidden lg:table-cell">1</td>
-                                        <td class="py-2 px-4 border-b sm:table-cell">Nombre Ejemplo</td>
-                                        <td class="py-2 px-4 border-b hidden lg:table-cell ">planchado</td>
-                                        <td class="py-2 px-4 border-b sm:table-cell ">$100</td>
+                                        <td class="py-2 px-4 border-b hidden lg:table-cell">{{ service.id }}</td>
+                                        <td class="py-2 px-4 border-b sm:table-cell">{{ service.name }}</td>
+                                        <td class="py-2 px-4 border-b hidden lg:table-cell ">{{ service.description }}</td>
+                                        <td class="py-2 px-4 border-b sm:table-cell ">{{ service.price }}</td>
                                         <td class="py-2 px-4 border-b sm:table-cell space-x-2">
                                             <div class="flex flex-col sm:flex-row sm:gap-x-2">
-                                                <!-- <a :href="route('services.edit')"
-                                                    class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
-                                                    actualziar
-                                                </a> -->
-                                                <button
-                                                    class="bg-red-500 text-white px-2 py-1 rounded  hover:shadow-md">Borrar</button>
+                                                <a :href="route('services.edit', service.id)"
+                                                    class="bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md">
+                                                    Editar
+                                                </a>
+
+                                                <button @click="confirmDelete(service.id)"
+                                                    class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md focus:outline-none">
+                                                    Eliminar
+                                                </button>
+                                                
                                             </div>
                                         </td>
-                                    </tr>
-
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -94,4 +98,59 @@ import { Head } from '@inertiajs/vue3';
 
     </div>
 </template>
+<script>
+import Swal from 'sweetalert2';
+
+export default {
+  data() {
+    return {
+        services: [], // Asegúrate de tener la lista de inventarios
+    };
+  },
+  methods: {
+    async confirmDelete(serviceID) {
+      // Mostrar la confirmación antes de realizar la solicitud DELETE
+      const confirmation = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción no se puede revertir',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, eliminarlo',
+        cancelButtonText: 'Cancelar',
+      });
+
+      // Si el usuario confirma la eliminación, realizar la solicitud DELETE
+      if (confirmation.isConfirmed) {
+        try {
+          // Realizar la solicitud DELETE
+          await this.$inertia.delete(`/services/${serviceID}`);
+
+          // Filtrar la lista de inventarios
+          this.services.data = this.services.data.filter(i => i.id !== serviceID);
+
+          // Mostrar un mensaje de eliminación con SwitchAlert2
+          await this.$swal({
+            title: 'Eliminado',
+            text: 'Inventario eliminado exitosamente.',
+            icon: 'success',
+          });
+        } catch (error) {
+          // En caso de error al eliminar
+          console.error('Error al eliminar el inventario', error);
+
+          // Mostrar un mensaje de error con SwitchAlert2
+          await this.$swal({
+            title: 'Error',
+            text: 'Hubo un error al eliminar el inventario.',
+            icon: 'error',
+          });
+        }
+      }
+    },
+  },
+};
+</script>
+
 

@@ -49,25 +49,26 @@ import { Head } from "@inertiajs/vue3";
                         <div class="text-3xl  font-bold text-black">
                             <center> Agregar Servicios</center>
                         </div>
-                        <form class="mt-10 px-4 space-y-4">
+                        <form @submit.prevent="submitForm" class="mt-10 px-4 space-y-4">
                             
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                                <input id="name" name="name" type="text" required
+                                <input v-model="form.name" id="name" name="name" type="text" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
-                                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                                <input id="descripcion" name="descripcion" type="text" required
+                                <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
+                                <input v-model="form.description" id="description" name="description" type="text" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
-                                <label for="cantidad" class="block text-sm font-medium text-gray-700">Precio</label>
-                                <input id="cantidad" name="cantidad" type="number" required
+                                <label for="price" class="block text-sm font-medium text-gray-700">Precio:</label>
+                                <input v-model="form.price" id="price" name="price" type="number" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
+                           
                             <div>
-                                <button class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
+                                <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
                                     Agregar
                                 </button>
                             </div>
@@ -80,3 +81,61 @@ import { Head } from "@inertiajs/vue3";
 
     </div>
 </template>
+<script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+export default {
+    data() {
+        return {
+            form: {
+                name: '',
+                description: '',
+                price: '',
+            },
+        };
+    },
+    props: {
+        permissions: Array,
+    },
+    methods: {
+        async submitForm() {
+            try {
+                // Asignamos los permisos seleccionados al formulario
+                this.form.permission = this.selectedPermissions;
+
+                // Ojo, estoy utilizando $inertia.post para hacer la llamada
+                this.$inertia.post(route('services.store'), this.form);
+                // this.$inertia.visit(route('roles.index'));
+
+
+                // seccion de que si funciono:) mensaje de éxito
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: 'Servicio agregado correctamente',
+                });
+                // VERIFICAR
+                // Redirigir al usuario a la página principal de roles
+                this.$router.push('/services');
+            } catch (error) {
+                console.error('Error al enviar el formulario', error.response.status, error.response.statusText, error.response.data);
+
+                let errorMessage = 'Hubo un error al agregar el rol';
+
+                if (error.response && error.response.status === 422) {
+                    const validationErrors = error.response.data.errors;
+
+                    errorMessage = Object.values(validationErrors).flat().join('<br>');
+                }
+
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    html: errorMessage,
+                });
+            }
+        },
+    },
+};
+</script>

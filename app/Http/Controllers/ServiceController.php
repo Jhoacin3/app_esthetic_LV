@@ -45,7 +45,7 @@ class ServiceController extends Controller
         ]);
         Service::create($request->all());
 
-        return Inertia::location(route('services'));
+        return Inertia::location(route('services.index'));
     }
 
     
