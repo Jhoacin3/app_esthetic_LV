@@ -38,63 +38,21 @@ import { Head } from '@inertiajs/vue3';
                 <div class="py-10 ">
 
                     <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="text-3xl font-bold text-black">Inventario de herramientas y productos</div>
+                        <div class="text-3xl font-bold text-black">Modifica aqui hija xfa la tabla tendra: fullName, service, day y hour y por supuesto las acciones</div>
                         <!-- ******SECCION DE LA TABLA BORRADOR****** -->
                         <!-- Botón de Agregar -->
                         <br>
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <a :href="route('inventories.create')"
                                 class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
                                 Agregar
                             </a>
-                        </div>
+                        </div> -->
 
 
                         <!-- Tabla -->
                         <div class="overflow-x-auto border-yellow-500">
-                            <table class="min-w-full  bg-zinc-50 border-yellow-500">
-                                <thead class="sm:table-header-group bg-red-300 ">
-
-                                    <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
-                                    <tr>
-                                        <th class="py-2 px-4 border-b hidden lg:table-cell">ID</th>
-                                        <th class="py-2 px-4 border-b sm::table-cell">Nombre</th>
-                                        <th class="py-2 px-4 border-b hidden lg:table-cell">Descripcion</th>
-                                        <th class="py-2 px-4 border-b sm::table-cell">Cantidad</th>
-                                        <th class="py-2 px-4 border-b sm:table-cell">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="sm:table-row-group">
-                                    <tr v-for="inventorie in $page.props.inventories.data" :key="inventorie.id">
-                                        <!-- Contenido de la tabla -->
-                                        <!-- Ejemplo de una fila, repite según tus datos -->
-                                        <td class="py-2 px-4 border-b hidden lg:table-cell">{{ inventorie.id }}</td>
-
-                                        <td class="py-2 px-4 border-b sm:table-cell">{{ inventorie.name }}</td>
-                                        <td class="py-2 px-4 border-b hidden lg:table-cell">{{ inventorie.description }}
-                                        </td>
-
-                                        <!-- El resto de las columnas para pantallas más grandes -->
-                                        <td class="py-2 px-4 border-b sm:table-cell">{{ inventorie.quantity }}</td>
-
-                                        <td class="py-2 px-4 border-b sm:table-cell space-x-2">
-                                            <div class="flex flex-col sm:flex-row sm:gap-x-2">
-                                                <a :href="route('inventories.edit', inventorie.id)"
-                                                    class="bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md">
-                                                    Editar
-                                                </a>
-
-                                                <button @click="confirmDelete(inventorie.id)"
-                                                    class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md focus:outline-none">
-                                                    Eliminar
-                                                </button>
-                                                
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
+                            
                         </div>
                     </div>
 
@@ -105,7 +63,7 @@ import { Head } from '@inertiajs/vue3';
 
     </div>
 </template>
-<script>
+<!-- <script>
 import Swal from 'sweetalert2';
 
 export default {
@@ -158,4 +116,4 @@ export default {
     },
   },
 };
-</script>
+</script> -->

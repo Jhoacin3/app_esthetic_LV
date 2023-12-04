@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RolController;
@@ -35,6 +36,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('roles',RolController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('services',ServiceController::class);
+    Route::resource('agendas',AgendaController::class);
 });
 
 

@@ -83,7 +83,7 @@ const closeSidebar = () => {
                   </li>
 
                   <li>
-                     <ResponsiveNavLink href="#"
+                     <ResponsiveNavLink href="/agendas"
                         class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" fill="orange">
                            <path
