@@ -36,28 +36,27 @@ class RolController extends Controller
   
     public function create()
     {
-      $permission = Permission::get();
-      // return view('roles.crear', compact('permission'));
-      // Retorna vista de creación de roles con permisos
-      return Inertia::render('roles_agregar',compact('permission'));
+        $permissions = Permission::get();
+        return Inertia::render('roles_agregar', compact('permissions'));
     }
   
     // Crea un nuevo rol
-    public function store(Request $request)
-    {
-      // Validación de datos
-      $this->validate($request, [
-        'name' => 'required|unique:roles,name',
-        'permission' => 'required',
-    ]);
+      // Crea un nuevo rol
+      public function store(Request $request)
+      {
+          $this->validate($request, [
+              'name' => 'required|unique:roles,name',
+              'permission' => 'required',
+          ]);
+      
+          $role = Role::create(['name' => $request->input('name')]);
+          $role->syncPermissions($request->input('permission'));
+      
+          // return Inertia::location(route('roles'));
+          return Inertia::location(route('roles.index'));
 
-    $role = Role::create(['name' => $request->input('name')]);
-    $role->syncPermissions($request->input('permission'));
-
-      // Redirige a la vista de índice de roles utilizando Inertia
-          return Inertia::location(route('roles'));
-    }
-  
+      }
+    
   
     // public function show(string $id)
     // {
@@ -76,21 +75,21 @@ class RolController extends Controller
     }
   
   
-    public function update(Request $request, string $id)
+       public function update(Request $request, $id)
     {
-      $this->validate($request, [
-        'name' => 'required',
-        'permission' => 'required',
-      ]);
-
-      $role = Role::find($id);
+        $this->validate($request, [
+            'name' => 'required',
+            'permission' => 'required',
+        ]);
+    
+        $role = Role::find($id);
         $role->name = $request->input('name');
         $role->save();
     
         $role->syncPermissions($request->input('permission'));
-      // Redirige a la vista de índice de roles utilizando Inertia
-      return Inertia::location(route('roles'));
-      }
+    
+        return redirect()->route('roles.index');                        
+    }
   
     public function destroy(string $id)
     {

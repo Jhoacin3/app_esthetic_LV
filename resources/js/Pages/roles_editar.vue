@@ -50,36 +50,34 @@ import { Head } from "@inertiajs/vue3";
                         <div class="text-3xl  font-bold text-black">
                             <center> Editar Rol </center>
                         </div>
-
-
-                        <form class="mt-10 px-4 space-y-4">
-                            <div>
-                                <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
-                                <input id="id" name="id" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                                <input id="name" name="name" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
-                                <input id="email" name="email" type="email" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <label for="rol" class="block text-sm font-medium text-gray-700">Rol</label>
-                                <input id="rol" name="rol" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <button class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
-                                    Guardar
-                                </button>
-                            </div>
-                        </form>
-
+                         <!-- formulario -->
+                         <form @submit.prevent="submitForm" class="mt-10 px-4 space-y-4">
+      <!-- ... Campos del formulario ... -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input v-model="form.name" id="name" name="name" type="text" required
+          class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      </div>
+      <!-- SECCION DE LOS CHECK BOX PARA MOSTRAR LOS PERMISOS PARA EL ROL A CREAR-->
+      <div class="form-group">
+        <label>Permisos para este Rol:</label>
+        <br />
+        <br />
+        <label v-for="permission in permissions" :key="permission.id" class="flex items-center mb-4">
+          <input type="checkbox" v-model="form.permission" :value="permission.id"
+            id="permission-checkbox-{{ permission.id }}"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+          <label :for="'permission-checkbox-' + permission.id" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-800">
+            {{ permission.name }}
+          </label>
+        </label>    
+      </div>
+      <div>
+        <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
+          Actualizar
+        </button>
+      </div>
+    </form>
                     </div>
                 </div>
             </template>
@@ -87,3 +85,40 @@ import { Head } from "@inertiajs/vue3";
 
     </div>
 </template>
+
+<script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+export default {
+  data() {
+    return {
+      form: {
+        name: '',
+        permission: [],
+      },
+    };
+  },
+  props: {
+    permissions: Array,
+  },
+  methods: {
+    async submitForm() {
+      try {
+        await this.$inertia.put(route('roles.update', this.$page.props.role.id), this.form);
+        await Swal.fire({
+          title: 'Éxito',
+          text: 'Rol actualizado',
+        });
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Error al actualizar el rol',
+        });
+      }
+    },
+  },
+};
+</script>
+
+  

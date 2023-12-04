@@ -50,11 +50,7 @@ import { Head } from "@inertiajs/vue3";
                             <center> Agregar Servicios</center>
                         </div>
                         <form class="mt-10 px-4 space-y-4">
-                            <div>
-                                <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
-                                <input id="id" name="id" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
+                            
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
                                 <input id="name" name="name" type="text" required
@@ -66,8 +62,8 @@ import { Head } from "@inertiajs/vue3";
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>
-                                <label for="cantidad" class="block text-sm font-medium text-gray-700">Cantidad</label>
-                                <input id="cantidad" name="cantidad" type="text" required
+                                <label for="cantidad" class="block text-sm font-medium text-gray-700">Precio</label>
+                                <input id="cantidad" name="cantidad" type="number" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
                             <div>

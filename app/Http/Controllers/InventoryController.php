@@ -45,7 +45,7 @@ class InventoryController extends Controller
         ]);
         Inventory::create($request->all());
 
-        return Inertia::location(route('inventories'));
+        return Inertia::location(route('inventories.index'));
     }
 
 
@@ -79,9 +79,10 @@ class InventoryController extends Controller
     }
 
 
-    public function destroy(string $id)
-    {
-        Inventory::find($id)->delete();
-        return Inertia::location(route('inventories'));
-    }
+    public function destroy(Inventory $inventory)
+{
+    $inventory->delete();
+    return Inertia::location(route('inventories.index'));
+}
+
 }

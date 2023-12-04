@@ -73,7 +73,7 @@ class ServiceController extends Controller
         ]);
         $service->update($request->all());
 
-        return Inertia::location(route('services'));
+        return Inertia::location(route('services_agregar'));
 
         
     }

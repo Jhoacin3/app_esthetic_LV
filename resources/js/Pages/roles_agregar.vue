@@ -51,30 +51,34 @@ import { Head } from "@inertiajs/vue3";
                             <center> Agregar Rol </center>
                         </div>
 
-
-                        <form class="mt-10 px-4 space-y-4">
-                            <div>
-                                <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
-                                <input id="id" name="id" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
+                        <!-- formulario -->
+                        <form @submit.prevent="submitForm" method="post" class="mt-10 px-4 space-y-4">
+                            <!-- ... Campos del formulario ... -->
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                                <input id="name" name="name" type="text" required
+                                <input v-model="form.name" id="name" name="name" type="text" required
                                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
-                                <input id="email" name="email" type="email" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <!-- SECCION DE LOS CHECK BOX PARA MOSTRAR LOS PERMISOS PARA EL ROL A CREAR-->
+                            <div class="form-group">
+                                <label>Permisos para este Rol:</label>
+                                <br />
+                                <br />
+                                <label v-for="permission in permissions" :key="permission.id"
+                                    class="flex items-center mb-4">
+                                    <input type="checkbox" v-model="selectedPermissions" :value="permission.id"
+                                        id="permission-checkbox-{{ permission.id }}"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                    <label :for="'permission-checkbox-' + permission.id"
+                                        class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-800">
+                                        {{ permission.name }}
+                                    </label>
+                                </label>
                             </div>
+
+
                             <div>
-                                <label for="rol" class="block text-sm font-medium text-gray-700">Rol</label>
-                                <input id="rol" name="rol" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <button class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
+                                <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
                                     Agregar
                                 </button>
                             </div>
@@ -87,3 +91,66 @@ import { Head } from "@inertiajs/vue3";
 
     </div>
 </template>
+  
+<script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+export default {
+  data() {
+    return {
+      form: {
+        name: '',
+        permission: [],
+      },
+      selectedPermissions: [],
+    };
+  },
+  props: {
+    permissions: Array,
+  },
+  methods: {
+    async submitForm() {
+      try {
+        // Asignamos los permisos seleccionados al formulario
+        this.form.permission = this.selectedPermissions;
+
+        // Ojo, estoy utilizando $inertia.post para hacer la llamada
+        this.$inertia.post(route('roles.store'), this.form);
+        // this.$inertia.visit(route('roles.index'));
+
+
+        // seccion de que si funciono:) mensaje de éxito
+        await Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Rol agregado correctamente',
+        });
+        // VERIFICAR
+        // Redirigir al usuario a la página principal de roles
+        this.$router.push('/roles');
+      } catch (error) {
+        console.error('Error al enviar el formulario', error.response.status, error.response.statusText, error.response.data);
+
+        let errorMessage = 'Hubo un error al agregar el rol';
+
+        if (error.response && error.response.status === 422) {
+          const validationErrors = error.response.data.errors;
+
+          errorMessage = Object.values(validationErrors).flat().join('<br>');
+        }
+
+        await Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          html: errorMessage,
+        });
+      }
+    },
+  },
+};
+
+</script>
+  
+
+
