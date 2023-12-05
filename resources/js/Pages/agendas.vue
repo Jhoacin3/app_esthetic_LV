@@ -36,26 +36,87 @@ import { Head } from '@inertiajs/vue3';
 
 
                 <div class="py-10 ">
-
-                    <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="text-3xl font-bold text-black">Modifica aqui hija xfa la tabla tendra: fullName, service, day y hour y por supuesto las acciones</div>
-                        <!-- ******SECCION DE LA TABLA BORRADOR****** -->
-                        <!-- Botón de Agregar -->
+                  <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="text-3xl font-bold text-black">
+                            Agenda
+                        </div>
                         <br>
-                        <!-- <div class="mb-4">
-                            <a :href="route('inventories.create')"
-                                class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
+                        <div class="mb-4">
+                            <button 
+                                class="mt-1 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
                                 Agregar
-                            </a>
-                        </div> -->
+                            </button>
+
+                        </div>
+
+                        <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
 
 
                         <!-- Tabla -->
-                        <div class="overflow-x-auto border-yellow-500">
-                            
-                        </div>
-                    </div>
+                        <div class="overflow-x-auto   border-yellow-50">
+                            <table class="min-w-full bg-zinc-50 border-yellow-50">
+                                <thead class="sm:table-header-group bg-red-300">
+                                    <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
+                                    <tr>
+                                        <th class="py-2 px-4 border-b hidden lg:table-cell">
+                                            Nombre
+                                        </th>
+                                        <th class="py-2 px-4 border-b sm:table-cell">
+                                            Servicio
+                                        </th>
+                                        <th class="py-2 px-4 border-b sm:table-cell">
+                                            Dia
+                                        </th>
+                                        <th class="py-2 px-4 border-b sm:table-cell">
+                                            Hora
+                                        </th>
+                                        <th class="py-2 px-4 border-b sm:table-cell">
+                                            Acciones
+                                        </th>
 
+                                    </tr>
+                                </thead>
+
+                                <tbody class="sm:table-row-group">
+                                    <!-- <tr v-for="user in $page.props.users" :key="user.id"> -->
+                                    <tr>
+                                        <td class="py-2 px-4 border-b hidden lg:table-cell">
+                                          Rubi
+                                        </td>
+                                        <td class="py-2 px-4 border-b sm:table-cell">
+                                         Corte de cabello
+                                        </td>
+                                        <td class="py-2 px-4 border-b sm:table-cell">
+                                         martes
+                                        </td>
+                                        <td class="py-2 px-4 border-b sm:table-cell">
+                                          11
+                                
+                                        </td>
+                                        <td class="py-2 px-4 border-b sm:table-cell space-x-2">
+
+                                            <div class="flex flex-col sm:flex-row sm:gap-x-2">
+                                                <a 
+                                                    class="btn bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md btn-info">
+                                                    Editar
+                                                </a>
+
+                                                <button 
+                                                class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md">
+                                                    Borrar
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- SECCION PAR ALA PAGINACION -->
+                       
+
+                    </div>
+                 
                 </div>
             </template>
 
