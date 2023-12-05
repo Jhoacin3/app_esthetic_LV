@@ -13,6 +13,7 @@ import { Head } from '@inertiajs/vue3';
     /* Hace que la imagen ocupe todo el contenedor */
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover; /* Ajusta el tamaño de la imagen para que cubra el contenedor */
     /* Evita que la imagen se repita */
 
 }
@@ -38,18 +39,13 @@ import { Head } from '@inertiajs/vue3';
 
                 <div class="py-10 ">
 
-                    <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="bg-opacity-0  overflow-hidden shadow-sm sm:rounded-lg">
                         <div class=" text-3xl font-bold text-black">Rol de Empleados</div>
                         <br>
                         <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
                         <!-- Botón de Agregar -->
                         <div class="mb-4">
-                            <!-- <a :href="route('roles.create')"
-                                class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
-                                Agregar
-                            </a> -->
-                            <!-- <button v-if="hasPermission('crear-rol')" @click="redirectToAddRole" class="btn btn-warning">Nuevo</button> -->
-                            <button v-if="can('crear-rol')" @click="createRole"
+                           <button v-if="can('crear-rol')" @click="createRole"
                                 class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
                                 Agregar
                             </button>

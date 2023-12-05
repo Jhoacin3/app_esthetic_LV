@@ -82,7 +82,7 @@ import { Head } from '@inertiajs/vue3';
                     <!-- Ejemplo de una fila, repite según tus datos -->
                     <td class="py-2 px-4 border-b hidden lg:table-cell">{{ agenda.id }}</td>
 
-                    <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.fullName }}</td>
+                    <td class="py-2 px-4 border-b hidden lg:table-cell">{{ agenda.fullName }}</td>
                     <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.service }}</td>
                     <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.day }}</td>
                     <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.hour }}</td>
