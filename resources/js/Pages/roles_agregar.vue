@@ -1,18 +1,6 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
-// const users = $page.props.users;
-// const users = computed(() => $page.props.users)
-// const changePage = (url) => {
-//     Inertia.visit(url)
-// }
-// import { Inertia } from '@inertiajs/inertia';
-
-// const redirectToAgregar = () => {
-//   Inertia.visit(route('users_agregar'));
-// };
-
-
 </script>
 <style scoped>
 .background-container {
