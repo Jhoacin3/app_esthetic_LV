@@ -164,15 +164,15 @@ export default {
          
           await Swal.fire({
             title: 'Eliminado',
-            text: 'Servicio eliminado exitosamente.',
+            text: 'Rol eliminado exitosamente.',
             icon: 'success',
           });
         } catch (error) {
-          console.error('Error al eliminar el servicio', error);
+          console.error('Error al eliminar el Rol ', error);
 
           await Swal.fire({
             title: 'Error',
-            text: 'Hubo un error al eliminar el servicio.',
+            text: 'Hubo un error al eliminar el Rol .',
             icon: 'error',
           });
         }

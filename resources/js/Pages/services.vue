@@ -159,24 +159,22 @@ export default {
       // Si el usuario confirma la eliminación, realizar la solicitud DELETE
       if (confirmation.isConfirmed) {
         try {
-          // Realizar la solicitud DELETE
           await this.$inertia.delete(`/services/${serviceID}`);
-          this.fetchServices(this.pagination.current_page);
-          
-          // Mostrar un mensaje de eliminación con SwitchAlert2
-          await this.$swal({
+          this.fetchServices(this.pagination.current_page); // Actualizar la lista de usuarios después de eliminar
+
+          await Swal.fire({
             title: 'Eliminado',
-            text: 'Inventario eliminado exitosamente.',
+            text: 'Servicio eliminado exitosamente.',
             icon: 'success',
           });
         } catch (error) {
           // En caso de error al eliminar
-          console.error('Error al eliminar el inventario', error);
+          console.error('Error al eliminar el servicio', error);
 
           // Mostrar un mensaje de error con SwitchAlert2
           await this.$swal({
             title: 'Error',
-            text: 'Hubo un error al eliminar el inventario.',
+            text: 'Hubo un error al eliminar el servicio.',
             icon: 'error',
           });
         }

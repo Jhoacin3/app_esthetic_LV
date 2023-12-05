@@ -139,7 +139,7 @@ import Swal from 'sweetalert2';
 
 export default {
   props: {
-    users: {
+    inventories: {
       type: Object,
       required: true,
     },
@@ -166,13 +166,10 @@ export default {
       // Si el usuario confirma la eliminación, realizar la solicitud DELETE
       if (confirmation.isConfirmed) {
         try {
-          // Realizar la solicitud DELETE
           await this.$inertia.delete(`/inventories/${inventoryID}`);
-          this.fetchInventories(this.pagination.current_page);
+          this.fetchInventories(this.pagination.current_page); // Actualizar la lista de usuarios después de eliminar
 
-        
-          // Mostrar un mensaje de eliminación con SwitchAlert2
-          await this.$swal({
+          await Swal.fire({
             title: 'Eliminado',
             text: 'Inventario eliminado exitosamente.',
             icon: 'success',
