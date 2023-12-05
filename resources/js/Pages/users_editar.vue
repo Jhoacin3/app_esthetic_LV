@@ -50,40 +50,41 @@ import { Head } from "@inertiajs/vue3";
                     <div class="text-3xl  font-bold text-black">
                         <center> Editar Empleados</center>
                     </div>
-                    <form class="mt-10 px-5  space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                            <input id="name" name="name" type="text" required
-                                class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <!-- Clase lg:w-96 para establecer un ancho de 24rem (384px) en dispositivos grandes -->
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
-                            <input id="email" name="email" type="email" required
-                                class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                            <input id="password" name="password" type="password" required
-                                class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmar
-                                Contraseña</label>
-                            <input id="confirm-password" name="confirm-password" type="password" required
-                                class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="roles" class="block text-sm font-medium text-gray-700">Rol</label>
-                            <input id="roles" name="roles" type="text" required
-                                class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <button class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
-                                Guardar
-                            </button>
-                        </div>
-                    </form>
+                    <form @submit.prevent="submitForm" method="post" class="mt-10 px-4 space-y-4">
+                            <!-- ... Campos del formulario ... -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                                <input v-model="form.name" id="name" name="name" type="text" required
+                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
+                                <input v-model="form.email" id="email" name="email" type="email" required
+                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div>
+                                <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                                <input v-model="form.password" id="password" name="password" type="password" required
+                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <!-- VERIFICAR EL INPUT ANTERIOR -->
+                            <div>
+                                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmar
+                                    Contraseña</label>
+                                <input v-model="form.confirmPassword" id="confirm-password" name="confirm-password"
+                                    type="password" required
+                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <select v-model="form.roles" id="roles" name="roles">
+                                <option v-for="role in roles" :key="role.id" :value="role.name">{{ role.name }}</option>
+                            </select>
+                            
+                            <div>
+                                <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
+                                    Agregar
+                                </button>
+                            </div>
+                        </form>
 
                 </div></div>
             </template>
@@ -91,3 +92,126 @@ import { Head } from "@inertiajs/vue3";
 
     </div>
 </template>
+<script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+export default {
+    props: {
+        user: Object,
+        roles: Array,
+
+    },
+    data() {
+        return {
+            form: {
+                name: this.user.name,
+                email: this.user.email,
+                password: this.user.password,
+                confirmPassword: this.user.confirmPassword,
+                roles: this.user.roles,
+            },
+        };
+    },
+    methods: {
+        async submitForm() {
+            try {
+                // Asignamos los permisos seleccionados al formulario
+                this.form.permission = this.selectedPermissions;
+
+                // Ojo, estoy utilizando $inertia.post para hacer la llamada
+                await this.$inertia.put(route('inventories.update', this.user.id), this.form);
+                
+
+                // this.$inertia.visit(route('roles.index'));
+
+
+                // seccion de que si funciono:) mensaje de éxito
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: 'Servicio agregado correctamente',
+                });
+                // VERIFICAR
+                // Redirigir al usuario a la página principal de roles
+                this.$router.push('/inventories');
+            } catch (error) {
+                console.error('Error al enviar el formulario', error.response.status, error.response.statusText, error.response.data);
+
+                let errorMessage = 'Hubo un error al agregar el rol';
+
+                if (error.response && error.response.status === 422) {
+                    const validationErrors = error.response.data.errors;
+
+                    errorMessage = Object.values(validationErrors).flat().join('<br>');
+                }
+
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    html: errorMessage,
+                });
+            }
+        },
+    },
+};
+</script>
+
+<!-- <script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
+export default {
+    data() {
+        return {
+            form: {
+                name: '',
+                email: '',
+                password: '',
+                password: '',
+            },
+        };
+    },
+    props: {
+        permissions: Array,
+    },
+    methods: {
+        async submitForm() {
+            try {
+                // Asignamos los permisos seleccionados al formulario
+                this.form.permission = this.selectedPermissions;
+
+                // Ojo, estoy utilizando $inertia.post para hacer la llamada
+                this.$inertia.post(route('inventories.store'), this.form);
+                // this.$inertia.visit(route('roles.index'));
+
+
+                // seccion de que si funciono:) mensaje de éxito
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: 'Rol agregado correctamente',
+                });
+                // VERIFICAR
+                // Redirigir al usuario a la página principal de roles
+                this.$router.push('/inventories');
+            } catch (error) {
+                console.error('Error al enviar el formulario', error.response.status, error.response.statusText, error.response.data);
+
+                let errorMessage = 'Hubo un error al agregar el rol';
+
+                if (error.response && error.response.status === 422) {
+                    const validationErrors = error.response.data.errors;
+
+                    errorMessage = Object.values(validationErrors).flat().join('<br>');
+                }
+
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    html: errorMessage,
+                });
+            }
+        },
+    },
+};
+</script> -->

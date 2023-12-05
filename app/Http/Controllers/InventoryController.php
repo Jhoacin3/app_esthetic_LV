@@ -55,25 +55,25 @@ class InventoryController extends Controller
     // }
 
 
-    public function edit(Inventory $inventorie)
+    public function edit(Inventory $inventory)
     {
         return Inertia::render('inventories_editar', [
             //verificar
-            'inventorie' => $inventorie,
+            'inventory' => $inventory,
         ]);
     }
 
 
-    public function update(Request $request, Inventory $inventorie)
+    public function update(Request $request, Inventory $inventory)
     {
         request()->validate([
             'name' =>'required',
             'description' =>'required',
             'quantity' =>'required',
         ]);
-        $inventorie->update($request->all());
+        $inventory->update($request->all());
 
-        return Inertia::location(route('inventories'));
+        return Inertia::location(route('inventories.index'));
 
         
     }

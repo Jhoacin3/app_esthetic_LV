@@ -28,30 +28,49 @@ class UserController extends Controller
     }
 
     public function create()
-    {
-        // Para poder crear un rol del empleado
-        $roles = Role::pluck('name', 'name')->all();
-        return Inertia::render('users_agregar', compact('roles'));
-    }
+{
+    $roles = Role::pluck('name', 'name')->all();
+    return Inertia::render('users_agregar', compact('roles'));
+}
 
-    public function store(Request $request)
-    {
-        //validando los campos
-           // Validando los campos
+
+// public function store(Request $request)
+// {
+//     $this->validate($request, [
+//         'name' => 'required',
+//         'email' => 'required|email|unique:users,email',
+//         'password' => 'required|same:confirm-password',
+//         'roles' => 'required'
+//     ]);
+
+//     $input = $request->all();
+//     $input['password'] = Hash::make($input['password']);
+
+//     $user = User::create($input);
+//     $user->assignRole($request->input('roles'));
+
+//     return Inertia::location(route('users'));
+// }
+public function store(Request $request)
+{
     $this->validate($request, [
         'name' => 'required',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|same:confirm-password',
-        'roles' => 'required'
+        'roles' => 'required|array',
     ]);
-        $input = $request->all();
-        //para proteger contraseña creada 
-        $input['password'] = Hash::make($input['password']);
 
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-        return Inertia::location(route('users'));
-    }
+    $input = $request->all();
+    $input['password'] = Hash::make($input['password']);
+
+    // Crea el usuario
+    $user = User::create($input);
+
+    // Asigna los roles al usuario utilizando Spatie Laravel Permissions
+    $user->syncRoles($request->input('roles'));
+
+    return Inertia::location(route('users.index'));
+}
 
     // public function show(string $id)
     // {

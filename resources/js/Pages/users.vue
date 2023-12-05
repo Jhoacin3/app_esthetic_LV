@@ -99,6 +99,7 @@ import { Head } from "@inertiajs/vue3";
                                         <td class="py-2 px-4 border-b hidden lg:table-cell">
                                             {{ user.email }}
                                         </td>
+                                        
                                         <td class="py-2 px-4 border-b sm:table-cell">
                                             <span v-for="role in user.roles" :key="role.id"
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -106,6 +107,13 @@ import { Head } from "@inertiajs/vue3";
                                                 {{ role.name }}
                                             </span>
                                         </td>
+                                        <!-- <td class="py-2 px-4 border-b sm:table-cell">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Empleado
+                                            </span>
+                                        </td> -->
+
                                         <td class="py-2 px-4 border-b sm:table-cell space-x-2">
 
                                             <div class="flex flex-col sm:flex-row sm:gap-x-2">

@@ -39,44 +39,36 @@ import { Head } from "@inertiajs/vue3";
                             <center> Agregar Empleados</center>
                         </div>
                         <form @submit.prevent="submitForm" method="post" class="mt-10 px-4 space-y-4">
-                            <!-- ... Campos del formulario ... -->
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                                <input v-model="form.name" id="name" name="name" type="text" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
-                                <input v-model="form.email" id="email" name="email" type="email" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                                <input v-model="form.password" id="password" name="password" type="password" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <!-- VERIFICAR EL INPUT ANTERIOR -->
-                            <div>
-                                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmar
-                                    Contraseña</label>
-                                <input v-model="form.confirmPassword" id="confirm-password" name="confirm-password"
-                                    type="password" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div>
-                                <!-- Cambiado a un campo de selección para los roles -->
-                                <label for="roles" class="block text-sm font-medium text-gray-700">Rol</label>
-                                <select v-model="form.name" id="roles" name="roles" required
-                                    class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                    <!-- Opciones de roles aquí -->
-                                </select>
-                            </div>
-                            <div>
-                                <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
-                                    Agregar
-                                </button>
-                            </div>
-                        </form>
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input v-model="form.name" id="name" name="name" type="text" required
+          class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Correo</label>
+        <input v-model="form.email" id="email" name="email" type="email" required
+          class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <input v-model="form.password" id="password" name="password" type="password" required
+          class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      </div>
+      <div>
+        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
+        <input v-model="form.confirmPassword" id="confirm-password" name="confirm-password" type="password" required
+          class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      </div>
+      <select v-model="form.roles" id="roles" name="roles">
+        <option v-for="role in roles" :key="role.id" :value="role.name">{{ role.name }}</option>
+      </select>
+
+      <div>
+        <button type="submit" class="bg-blue-500 mt-2 text-white px-3 py-1 rounded hover:shadow-md">
+          {{ editing ? 'Editar' : 'Agregar' }}
+        </button>
+      </div>
+    </form>
 
 
                     </div>
@@ -92,49 +84,84 @@ import { ref } from 'vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+export default {
+  props: {
+    roles: Array,
+    user: Object, // Datos del usuario para editar
+  },
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        roles: '',
+      },
+      editing: false,
+    };
+  },
+  watch: {
+    user: {
+      handler(newVal) {
+        if (newVal) {
+          this.form = { ...newVal, confirmPassword: '' };
+          this.editing = true;
+        }
+      },
+      deep: true,
+    },
+  },
+  methods: {
+    async submitForm() {
+      try {
+        console.log('Roles en users_agregar.vue:', this.roles);
+        console.log('Formulario enviado:', this.form);
 
-const form = ref({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    roles: ''
-});
-const submitForm = async () => {
-    try {
-        const response = await axios.post('/users', form.value);
-        // console.log('Formulario enviado con éxito', response.data);
+        if (this.editing) {
+          // Lógica de actualización
+          const response = await axios.put(`/users/${this.user.id}`, this.form);
+        } else {
+          // Lógica de creación
+          const response = await axios.post('/users', this.form);
+        }
 
-        // Mostrar SweetAlert2 de éxito
+        // Restablecer el formulario después de la acción
+        this.form = {
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          roles: '',
+        };
+
+        // seccion de que si funciono:) mensaje de éxito
         await Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: 'Usuario agregado correctamente',
+          icon: 'success',
+          title: 'Éxito',
+          text: this.editing ? 'Usuario editado correctamente' : 'Usuario agregado correctamente',
         });
 
         // Redirigir al usuario a la página principal de usuarios
-        window.location.href = '/users';
-
-    } catch (error) {
+        this.$router.push('/users');
+      } catch (error) {
         console.error('Error al enviar el formulario', error.response.status, error.response.statusText, error.response.data);
 
-        let errorMessage = 'Hubo un error al agregar el usuario';
+        let errorMessage = `Hubo un error al ${this.editing ? 'editar' : 'agregar'} el usuario`;
 
-        // Manejar errores de validación específicamente
         if (error.response && error.response.status === 422) {
-            const validationErrors = error.response.data.errors;
-
-            // Construir un mensaje de error específico para errores de validación
-            errorMessage = Object.values(validationErrors).flat().join('<br>');
+          const validationErrors = error.response.data.errors;
+          errorMessage = Object.values(validationErrors).flat().join('<br>');
         }
 
-        // Mostrar SweetAlert2 de error con mensaje específico
         await Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            html: errorMessage,
+          icon: 'error',
+          title: 'Error',
+          html: errorMessage,
         });
-    }
+      }
+    },
+  },
 };
-
 </script>
+

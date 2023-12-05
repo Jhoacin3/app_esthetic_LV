@@ -73,7 +73,7 @@ class ServiceController extends Controller
         ]);
         $service->update($request->all());
 
-        return Inertia::location(route('services_agregar'));
+        return Inertia::location(route('services.index'));
 
         
     }
@@ -82,6 +82,6 @@ class ServiceController extends Controller
     public function destroy(string $id)
     {
         Service::find($id)->delete();
-        return Inertia::location(route('services'));
+        return Inertia::location(route('services.index'));
     }
 }
