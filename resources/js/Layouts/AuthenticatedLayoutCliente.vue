@@ -71,7 +71,7 @@ const closeSidebar = () => {
                <ul class="space-y-2 font-medium">
                   <li>
 
-                     <ResponsiveNavLink href='/dashboard'
+                     <ResponsiveNavLink href='/dashboard-cliente'
                         class="flex items-center mt-20 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512" fill="orange">
                            <!-- Cambiar el color a amarillo -->
@@ -83,7 +83,7 @@ const closeSidebar = () => {
                   </li>
 
                   <li>
-                     <ResponsiveNavLink href="#"
+                     <ResponsiveNavLink href="/appointmentsclientes"
                         class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" fill="orange">
                            <path
@@ -94,7 +94,7 @@ const closeSidebar = () => {
                      </ResponsiveNavLink>
                   </li>
                   <li>
-                     <ResponsiveNavLink href="#"
+                     <ResponsiveNavLink href="/servicesclientes"
                         class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 18 20">
                            <path

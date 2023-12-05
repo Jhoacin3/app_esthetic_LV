@@ -4,17 +4,28 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
+
+const props = defineProps({
+    email: {
+        type: String,
+        required: true,
+    },
+    token: {
+        type: String,
+        required: true,
+    },
+});
 
 const form = useForm({
-    name: '',
-    email: '',
+    token: props.token,
+    email: props.email,
     password: '',
     password_confirmation: '',
 });
 
 const submit = () => {
-    form.post(route('register-cliente'), {
+    form.post(route('password.store.cliente'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
@@ -22,26 +33,10 @@ const submit = () => {
 
 <template>
     <GuestLayout>
-        <Head title="Beauty Studio" />
-        <h1>estamos en el registro del cliente</h1>
+        <Head title="Reset Password" />
+
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
-
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
-
-            <div class="mt-4">
                 <InputLabel for="email" value="Email" />
 
                 <TextInput
@@ -50,6 +45,7 @@ const submit = () => {
                     class="mt-1 block w-full"
                     v-model="form.email"
                     required
+                    autofocus
                     autocomplete="username"
                 />
 
@@ -86,25 +82,10 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
 
-           
-            <div class="block mt-5 flex items-center justify-between">
-                <label class="flex items-center">
-                     <Link
-                    :href="route('login-cliente')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
-                </Link>
-                </label>
-
-                
-                <div class="text-sm text-right">
-                <PrimaryButton className="flex w-full justify-center rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-Fuchsia-600"
-                
-                >
-                    Register
+            <div class="flex items-center justify-end mt-4">
+                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Reset Password
                 </PrimaryButton>
-                </DIV>
             </div>
         </form>
     </GuestLayout>

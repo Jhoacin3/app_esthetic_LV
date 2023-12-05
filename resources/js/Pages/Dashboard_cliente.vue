@@ -26,11 +26,11 @@ import { Head } from '@inertiajs/vue3';
 <template>
     <Head title="Beauty Studio" />
     <div class="background-container">
-    <AuthenticatedLayout>
+    <AuthenticatedLayoutCliente>
         <template #header>
             <center><p id="miTexto" class="text-center text-gray-500 dark:text-gray-400">
                 «Bienvenido al sistema».</p></center>
         </template>     
-    </AuthenticatedLayout>
+    </AuthenticatedLayoutCliente>
     </div>
 </template>

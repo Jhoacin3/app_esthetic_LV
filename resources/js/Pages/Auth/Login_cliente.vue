@@ -23,7 +23,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    form.post(route('login-cliente'), {
         onFinish: () => form.reset('password'),
     });
 };
@@ -33,7 +33,7 @@ const submit = () => {
     <GuestLayout >
 
  <Head title="Beauty Studio" />
-
+ <h1>estamos en el login del cliente</h1>
 
 <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
     {{ status }}
@@ -73,9 +73,9 @@ const submit = () => {
         </label>
 
         <div class="text-sm text-right">
-            <Link v-if="canResetPassword" :href="route('password.request')"
+            <Link v-if="canResetPassword" :href="route('password.request.cliente')"
                 class="font-semibold text-cyan-600 hover:text-cyan-700">
-            Olvidastes tu contraseña?
+            ¿Olvidaste tu contraseña?
             </Link>
         </div>
     </div>
@@ -94,7 +94,7 @@ const submit = () => {
 </form>
 <p className="mt-10 text-center text-sm text-gray-500">
     ¿Aún no tienes una cuenta? 
-    <a href="register" className="font-semibold leading-6 text-cyan-600 hover:text-cyan-700">
+    <a href="register-cliente" className="font-semibold leading-6 text-cyan-600 hover:text-cyan-700">
        Únete
     </a>
   </p>
