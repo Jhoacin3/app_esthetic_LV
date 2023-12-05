@@ -86,7 +86,7 @@ import { Head } from '@inertiajs/vue3';
                                                     class="mt-8 bg-blue-500 text-white px-4 py-2 rounded hover:shadow-md">
                                                     Editar
                                                 </button> -->
-                                                <button
+                                                <button  @click="confirmDeleterole(role.id)"
                                                     class="bg-red-500 text-white px-2 py-1 rounded  hover:shadow-md">Borrar</button>
                                             </div>
                                         </td>
@@ -104,28 +104,70 @@ import { Head } from '@inertiajs/vue3';
     </div>
 </template>
 <script>
+import Swal from 'sweetalert2';
 
 export default {
+  data() {
+    return {
+      roles: [], // Asegúrate de tener la lista de servicios
+    };
+  },
+  methods: {
+    async confirmDeleterole(roleID) {
+      const confirmation = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción no se puede revertir',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, eliminarlo',
+        cancelButtonText: 'Cancelar',
+      });
 
-    methods: {
-        can(permission) {
-            return true // aquí la lógica real de verificar permiso      
-        },
+      if (confirmation.isConfirmed) {
+        try {
+          await this.$inertia.delete(`/roles/${roleID}`);
+          this.services = this.roles.filter(role => role.id !== roleID);
 
-        createRole() {
+          await Swal.fire({
+            title: 'Eliminado',
+            text: 'Servicio eliminado exitosamente.',
+            icon: 'success',
+          });
+        } catch (error) {
+          console.error('Error al eliminar el servicio', error);
 
-            this.$inertia.get('/roles/create')
-
-        },
-        editRole() {
-
-            this.$inertia.get('/roles/edit')
-
+          await Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al eliminar el servicio.',
+            icon: 'error',
+          });
         }
-
-    }
-
-}  
+      }
+    },
+    can(permission) {
+      // Aquí deberías implementar la lógica real para verificar los permisos
+      return true; // Ejemplo simple: siempre devuelve true para demostración
+    },
+    createRole() {
+      if (this.can('create_role_permission')) {
+        this.$inertia.get('/roles/create');
+      } else {
+        // Manejo de falta de permisos
+        console.error('No tienes permiso para crear roles.');
+        // Puedes mostrar un mensaje al usuario aquí si es necesario
+      }
+    },
+    editRole() {
+      if (this.can('edit_role_permission')) {
+        this.$inertia.get('/roles/edit');
+      } else {
+        // Manejo de falta de permisos
+        console.error('No tienes permiso para editar roles.');
+        // Puedes mostrar un mensaje al usuario aquí si es necesario
+      }
+    },
+  },
+};
 </script>
-
-

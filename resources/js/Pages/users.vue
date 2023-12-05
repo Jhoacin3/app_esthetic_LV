@@ -122,7 +122,8 @@ import { Head } from "@inertiajs/vue3";
                                                     Editar
                                                 </a>
 
-                                                <button class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md">
+                                                <button @click="confirmDeleteUser(user.id)"
+                                                class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md">
                                                     Borrar
                                                 </button>
                                             </div>
@@ -168,23 +169,59 @@ import { Head } from "@inertiajs/vue3";
     </div>
 </template>
 
+
 <!-- SCRIPT PARA LA PAGINACION -->
 <script>
+import Swal from 'sweetalert2';
+
 export default {
-    props: {
-        users: {
-            type: Object,
-            required: true,
-        },
-        pagination: {
-            type: Object,
-            required: true,
-        },
+  props: {
+    users: {
+      type: Object,
+      required: true,
     },
-    methods: {
-        fetchUsers(page) {
-            this.$inertia.get(`/users?page=${page}`);
-        },
+    pagination: {
+      type: Object,
+      required: true,
     },
+  },
+  methods: {
+    async confirmDeleteUser(userID) {
+      const confirmation = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción no se puede revertir',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, eliminarlo',
+        cancelButtonText: 'Cancelar',
+      });
+
+      if (confirmation.isConfirmed) {
+        try {
+          await this.$inertia.delete(`/users/${userID}`);
+          this.fetchUsers(this.pagination.current_page); // Actualizar la lista de usuarios después de eliminar
+
+          await Swal.fire({
+            title: 'Eliminado',
+            text: 'Usuario eliminado exitosamente.',
+            icon: 'success',
+          });
+        } catch (error) {
+          console.error('Error al eliminar el usuario', error);
+
+          await Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al eliminar el usuario.',
+            icon: 'error',
+          });
+        }
+      }
+    },
+    fetchUsers(page) {
+      this.$inertia.get(`/users?page=${page}`);
+    },
+  },
 };
 </script>
