@@ -4,137 +4,131 @@ import { Head } from '@inertiajs/vue3';
 </script>
 <style scoped>
 .background-container {
-    position: relative;
-    width: 100%;
-    height: 140vh;
-    background-image: url('@/img/Fondo1.webp');
-    background-size: 100% 100%;
-    /* Hace que la imagen ocupe todo el contenedor */
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
+  position: relative;
+  width: 100%;
+  height: 140vh;
+  background-image: url('@/img/Fondo1.webp');
+  background-size: 100% 100%;
+  /* Hace que la imagen ocupe todo el contenedor */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
 
 }
 
 /* Media query para dispositivos más pequeños */
 @media screen and (max-width: 768px) {
-    .background-container {
-        height: 110vh;
-        /* Cambia la altura para dispositivos más pequeños */
-        background-size: cover;
-        /* Ajusta el tamaño de la imagen para que cubra el contenedor */
-    }
+  .background-container {
+    height: 110vh;
+    /* Cambia la altura para dispositivos más pequeños */
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen para que cubra el contenedor */
+  }
 }
 </style>
 <template>
-    <Head title="Beauty Studio" />
-    <div class="background-container">
+  <Head title="Beauty Studio" />
+  <div class="background-container">
 
-        <AuthenticatedLayout>
+    <AuthenticatedLayout>
 
-            <template #table-content-Inventarios>
-
-
-                <div class="py-10 ">
-                  <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="text-3xl font-bold text-black">
-                            Agenda
-                        </div>
-                        <br>
-                        <div class="mb-4">
-                            <button 
-                                class="mt-1 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
-                                Agregar
-                            </button>
-
-                        </div>
-
-                        <!-- *******************SECCION DE LA TABLA BORRADOR******************* -->
+      <template #table-content-Inventarios>
 
 
-                        <!-- Tabla -->
-                        <div class="overflow-x-auto   border-yellow-50">
-                            <table class="min-w-full bg-zinc-50 border-yellow-50">
-                                <thead class="sm:table-header-group bg-red-300">
-                                    <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
-                                    <tr>
-                                        <th class="py-2 px-4 border-b hidden lg:table-cell">
-                                            Nombre
-                                        </th>
-                                        <th class="py-2 px-4 border-b sm:table-cell">
-                                            Servicio
-                                        </th>
-                                        <th class="py-2 px-4 border-b sm:table-cell">
-                                            Dia
-                                        </th>
-                                        <th class="py-2 px-4 border-b sm:table-cell">
-                                            Hora
-                                        </th>
-                                        <th class="py-2 px-4 border-b sm:table-cell">
-                                            Acciones
-                                        </th>
+        <div class="py-10 ">
+          <div class="bg-opacity-0 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="text-3xl font-bold text-black">
+              Agenda
+            </div>
+            <br>
+            <br>
+            <div class="mb-4">
+              <a :href="route('agendas.create')" class="mt-8 bg-green-500 text-white px-4 py-2 rounded hover:shadow-md">
+                Agregar
+              </a>
+            </div>
 
-                                    </tr>
-                                </thead>
+            <!-- Tabla -->
+            <div class="overflow-x-auto   border-yellow-50">
+              <table class="min-w-full bg-zinc-50 border-yellow-50">
+                <thead class="sm:table-header-group bg-red-300">
+                  <!-- Encabezados de las columnas (solo los primeros tres para pantallas pequeñas) -->
+                  <tr>
+                    <th class="py-2 px-4 border-b hidden lg:table-cell">
+                      ID
+                    </th>
+                    <th class="py-2 px-4 border-b hidden lg:table-cell">
+                      Nombre
+                    </th>
+                    <th class="py-2 px-4 border-b sm:table-cell">
+                      Servicio
+                    </th>
+                    <th class="py-2 px-4 border-b sm:table-cell">
+                      Dia
+                    </th>
+                    <th class="py-2 px-4 border-b sm:table-cell">
+                      Hora
+                    </th>
+                    <th class="py-2 px-4 border-b sm:table-cell">
+                      Acciones
+                    </th>
 
-                                <tbody class="sm:table-row-group">
-                                    <!-- <tr v-for="user in $page.props.users" :key="user.id"> -->
-                                    <tr>
-                                        <td class="py-2 px-4 border-b hidden lg:table-cell">
-                                          Rubi
-                                        </td>
-                                        <td class="py-2 px-4 border-b sm:table-cell">
-                                         Corte de cabello
-                                        </td>
-                                        <td class="py-2 px-4 border-b sm:table-cell">
-                                         martes
-                                        </td>
-                                        <td class="py-2 px-4 border-b sm:table-cell">
-                                          11
-                                
-                                        </td>
-                                        <td class="py-2 px-4 border-b sm:table-cell space-x-2">
+                  </tr>
+                </thead>
 
-                                            <div class="flex flex-col sm:flex-row sm:gap-x-2">
-                                                <a 
-                                                    class="btn bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md btn-info">
-                                                    Editar
-                                                </a>
+                <tbody class="sm:table-row-group">
+                  <tr v-for="agenda in $page.props.agendas.data" :key="agenda.id">
+                    <!-- Contenido de la tabla -->
+                    <!-- Ejemplo de una fila, repite según tus datos -->
+                    <td class="py-2 px-4 border-b hidden lg:table-cell">{{ agenda.id }}</td>
 
-                                                <button 
-                                                class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md">
-                                                    Borrar
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                    <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.fullName }}</td>
+                    <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.service }}</td>
+                    <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.day }}</td>
+                    <td class="py-2 px-4 border-b sm:table-cell">{{ agenda.hour }}</td>
 
-                            </table>
-                        </div>
-                        <!-- SECCION PAR ALA PAGINACION -->
-                       
+                    <td class="py-2 px-4 border-b sm:table-cell">
+                      <div class="flex flex-col sm:flex-row sm:gap-x-2">
+                        <a :href="route('agendas.edit', agenda.id)"
+                          class="bg-sky-500 text-white px-1.5 py-1 rounded hover:shadow-md">
+                          Editar
+                        </a>
 
-                    </div>
-                 
-                </div>
-            </template>
+                        <button @click="confirmDelete(agenda.id)"
+                          class="bg-red-500 text-white px-1.5 py-1 rounded hover:shadow-md focus:outline-none">
+                          Eliminar
+                        </button>
 
-        </AuthenticatedLayout>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
 
-    </div>
+              </table>
+            </div>
+            <!-- SECCION PAR ALA PAGINACION -->
+
+
+          </div>
+
+        </div>
+      </template>
+
+    </AuthenticatedLayout>
+
+  </div>
 </template>
-<!-- <script>
+<script>
 import Swal from 'sweetalert2';
 
 export default {
   data() {
     return {
-      inventories: [], // Asegúrate de tener la lista de inventarios
+      agendas: [], // Asegúrate de tener la lista de inventarios
     };
   },
   methods: {
-    async confirmDelete(inventoryID) {
+    async confirmDelete(agendaID) {
       // Mostrar la confirmación antes de realizar la solicitud DELETE
       const confirmation = await Swal.fire({
         title: '¿Estás seguro?',
@@ -151,10 +145,10 @@ export default {
       if (confirmation.isConfirmed) {
         try {
           // Realizar la solicitud DELETE
-          await this.$inertia.delete(`/inventories/${inventoryID}`);
+          await this.$inertia.delete(`/agendas/${agendaID}`);
 
           // Filtrar la lista de inventarios
-          this.inventories.data = this.inventories.data.filter(i => i.id !== inventoryID);
+          this.agendas.data = this.agendas.data.filter(i => i.id !== agendaID);
 
           // Mostrar un mensaje de eliminación con SwitchAlert2
           await this.$swal({
@@ -177,4 +171,4 @@ export default {
     },
   },
 };
-</script> -->
+</script>

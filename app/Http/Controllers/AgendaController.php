@@ -66,7 +66,7 @@ class AgendaController extends Controller
      */
     public function edit(Agenda $agenda)
     {
-        return Inertia::render('inventories_editar', [
+        return Inertia::render('agendas_editar', [
             //verificar
             'agenda' => $agenda,
         ]);
