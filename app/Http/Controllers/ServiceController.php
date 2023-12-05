@@ -24,8 +24,11 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::paginate(5);
-        // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('services', ['services' => $services]);
+         
+        return Inertia::render('services', [
+            'services' => $services,
+            'pagination' => $services->toArray(), // Asegúrate de que los datos de paginación estén disponibles
+        ]);
     }
 
     

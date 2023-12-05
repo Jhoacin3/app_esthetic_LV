@@ -29,9 +29,13 @@ class RolController extends Controller
     {
       // Consulta paginada 
       $roles = Role::paginate(5);
-      // Retorna vista de index con roles
-      // return view('roles.index', compact('roles'));
-      return Inertia::render('roles', compact('roles'));
+      
+        // return Inertia::render('users', ['users' => $users]);
+        return Inertia::render('roles', [
+          'roles' => $roles,
+          'pagination' => $roles->toArray(), // Asegúrate de que los datos de paginación estén disponibles
+      ]);
+     
     }
   
     public function create()

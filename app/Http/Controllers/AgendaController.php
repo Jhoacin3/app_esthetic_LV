@@ -24,8 +24,11 @@ class AgendaController extends Controller
     public function index()
     {
         $agendas = Agenda::paginate(5);
-        // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('agendas', ['agendas' => $agendas]);
+        return Inertia::render('agendas', [
+            'agendas' => $agendas,
+            'pagination' => $agendas->toArray(), // Asegúrate de que los datos de paginación estén disponibles
+        ]);
+      
     }
 
     /**

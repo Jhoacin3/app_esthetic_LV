@@ -96,8 +96,37 @@ import { Head } from '@inertiajs/vue3';
 
                             </table>
                         </div>
-                    </div>
 
+                        <!-- SECCION PAR ALA PAGINACION -->
+                        <div class="flex justify-center bg-red-300 p-0.2">
+                            <nav aria-label="Page navigation">
+                                <ul class="flex list-none p-0 m-0">
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.prev_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchInventories(pagination.current_page - 1)" href="#"
+                                            aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <li v-for="page in pagination.last_page" :key="page"
+                                        :class="{ 'bg-sky-500 text-white': pagination.current_page === page }" class="mr-2">
+                                        <a @click.prevent="fetchInventories(page)" href="#" class="block p-2">{{ page }}</a>
+                                    </li>
+
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.next_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchInventories(pagination.current_page + 1)" href="#"
+                                            aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+
+                    </div>
                 </div>
             </template>
 
@@ -109,11 +138,17 @@ import { Head } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
 
 export default {
-  data() {
-    return {
-      inventories: [], // Asegúrate de tener la lista de inventarios
-    };
+  props: {
+    users: {
+      type: Object,
+      required: true,
+    },
+    pagination: {
+      type: Object,
+      required: true,
+    },
   },
+ 
   methods: {
     async confirmDelete(inventoryID) {
       // Mostrar la confirmación antes de realizar la solicitud DELETE
@@ -133,10 +168,9 @@ export default {
         try {
           // Realizar la solicitud DELETE
           await this.$inertia.delete(`/inventories/${inventoryID}`);
+          this.fetchInventories(this.pagination.current_page);
 
-          // Filtrar la lista de inventarios
-          this.inventories.data = this.inventories.data.filter(i => i.id !== inventoryID);
-
+        
           // Mostrar un mensaje de eliminación con SwitchAlert2
           await this.$swal({
             title: 'Eliminado',
@@ -155,6 +189,9 @@ export default {
           });
         }
       }
+    },
+    fetchInventories(page) {
+      this.$inertia.get(`/inventories?page=${page}`);
     },
   },
 };

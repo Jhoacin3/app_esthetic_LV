@@ -106,7 +106,34 @@ import { Head } from '@inertiajs/vue3';
 
               </table>
             </div>
-            <!-- SECCION PAR ALA PAGINACION -->
+           
+              <!-- SECCION PAR ALA PAGINACION -->
+              <div class="flex justify-center  bg-red-300 p-0.2">
+                            <nav aria-label="Page navigation">
+                                <ul class="flex list-none p-0 m-0">
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.prev_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetcAgendas(pagination.current_page - 1)" href="#"
+                                            aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <li v-for="page in pagination.last_page" :key="page"
+                                        :class="{ 'bg-sky-500 text-white': pagination.current_page === page }" class="mr-2">
+                                        <a @click.prevent="fetchAgendas(page)" href="#" class="block p-2">{{ page }}</a>
+                                    </li>
+
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.next_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchAgendas(pagination.current_page + 1)" href="#"
+                                            aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
 
 
           </div>
@@ -122,11 +149,17 @@ import { Head } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
 
 export default {
-  data() {
-    return {
-      agendas: [], // Asegúrate de tener la lista de inventarios
-    };
+  props: {
+    agendas: {
+      type: Object,
+      required: true,
+    },
+    pagination: {
+      type: Object,
+      required: true,
+    },
   },
+
   methods: {
     async confirmDelete(agendaID) {
       // Mostrar la confirmación antes de realizar la solicitud DELETE
@@ -146,9 +179,7 @@ export default {
         try {
           // Realizar la solicitud DELETE
           await this.$inertia.delete(`/agendas/${agendaID}`);
-
-          // Filtrar la lista de inventarios
-          this.agendas.data = this.agendas.data.filter(i => i.id !== agendaID);
+          this.fetchAgendas(this.pagination.current_page);
 
           // Mostrar un mensaje de eliminación con SwitchAlert2
           await this.$swal({
@@ -168,6 +199,9 @@ export default {
           });
         }
       }
+    },
+    fetchAgendas(page) {
+      this.$inertia.get(`/agendas?page=${page}`);
     },
   },
 };

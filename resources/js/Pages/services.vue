@@ -89,6 +89,34 @@ import { Head } from '@inertiajs/vue3';
                                 </tbody>
                             </table>
                         </div>
+
+                         <!-- SECCION PAR ALA PAGINACION -->
+                         <div class="flex justify-center bg-red-300 p-0.2">
+                            <nav aria-label="Page navigation">
+                                <ul class="flex list-none p-0 m-0">
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.prev_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchServices(pagination.current_page - 1)" href="#"
+                                            aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <li v-for="page in pagination.last_page" :key="page"
+                                        :class="{ 'bg-sky-500 text-white': pagination.current_page === page }" class="mr-2">
+                                        <a @click.prevent="fetchServices(page)" href="#" class="block p-2">{{ page }}</a>
+                                    </li>
+
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.next_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchServices(pagination.current_page + 1)" href="#"
+                                            aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
 
                 </div>
@@ -102,11 +130,18 @@ import { Head } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
 
 export default {
-  data() {
-    return {
-        services: [], // Asegúrate de tener la lista de inventarios
-    };
+
+  props: {
+    services: {
+      type: Object,
+      required: true,
+    },
+    pagination: {
+      type: Object,
+      required: true,
+    },
   },
+
   methods: {
     async confirmDelete(serviceID) {
       // Mostrar la confirmación antes de realizar la solicitud DELETE
@@ -126,10 +161,8 @@ export default {
         try {
           // Realizar la solicitud DELETE
           await this.$inertia.delete(`/services/${serviceID}`);
-
-          // Filtrar la lista de inventarios
-          this.services.data = this.services.data.filter(i => i.id !== serviceID);
-
+          this.fetchServices(this.pagination.current_page);
+          
           // Mostrar un mensaje de eliminación con SwitchAlert2
           await this.$swal({
             title: 'Eliminado',
@@ -148,7 +181,13 @@ export default {
           });
         }
       }
+      
     },
+
+    fetchServices(page) {
+      this.$inertia.get(`/services?page=${page}`);
+    },
+
   },
 };
 </script>

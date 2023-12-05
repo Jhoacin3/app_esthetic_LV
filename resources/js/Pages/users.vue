@@ -134,7 +134,7 @@ import { Head } from "@inertiajs/vue3";
                             </table>
                         </div>
                         <!-- SECCION PAR ALA PAGINACION -->
-                        <div class="flex justify-center bg-pink-300 p-1">
+                        <div class="flex justify-center bg-red-300 p-0.2">
                             <nav aria-label="Page navigation">
                                 <ul class="flex list-none p-0 m-0">
                                     <li :class="{ 'opacity-50 pointer-events-none': !pagination.prev_page_url }"

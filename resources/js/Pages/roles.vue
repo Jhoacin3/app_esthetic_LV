@@ -94,6 +94,35 @@ import { Head } from '@inertiajs/vue3';
                                 </tbody>
                             </table>
                         </div>
+                        
+
+                        <div class="flex justify-center bg-red-300 p-0.2">
+                            <nav aria-label="Page navigation">
+                                <ul class="flex list-none p-0 m-0">
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.prev_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchRoles(pagination.current_page - 1)" href="#"
+                                            aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <li v-for="page in pagination.last_page" :key="page"
+                                        :class="{ 'bg-sky-500 text-white': pagination.current_page === page }" class="mr-2">
+                                        <a @click.prevent="fetchRoles(page)" href="#" class="block p-2">{{ page }}</a>
+                                    </li>
+
+                                    <li :class="{ 'opacity-50 pointer-events-none': !pagination.next_page_url }"
+                                        class="mr-2">
+                                        <a @click.prevent="fetchRoles(pagination.current_page + 1)" href="#"
+                                            aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
                     </div>
 
                 </div>
@@ -103,15 +132,22 @@ import { Head } from '@inertiajs/vue3';
 
     </div>
 </template>
+
 <script>
 import Swal from 'sweetalert2';
 
 export default {
-  data() {
-    return {
-      roles: [], // Asegúrate de tener la lista de servicios
-    };
+  props: {
+    roles: {
+      type: Object,
+      required: true,
+    },
+    pagination: {
+      type: Object,
+      required: true,
+    },
   },
+
   methods: {
     async confirmDeleterole(roleID) {
       const confirmation = await Swal.fire({
@@ -128,8 +164,8 @@ export default {
       if (confirmation.isConfirmed) {
         try {
           await this.$inertia.delete(`/roles/${roleID}`);
-          this.services = this.roles.filter(role => role.id !== roleID);
-
+          this.fetchRoles(this.pagination.current_page);
+         
           await Swal.fire({
             title: 'Eliminado',
             text: 'Servicio eliminado exitosamente.',
@@ -146,6 +182,7 @@ export default {
         }
       }
     },
+   
     can(permission) {
       // Aquí deberías implementar la lógica real para verificar los permisos
       return true; // Ejemplo simple: siempre devuelve true para demostración
@@ -167,6 +204,9 @@ export default {
         console.error('No tienes permiso para editar roles.');
         // Puedes mostrar un mensaje al usuario aquí si es necesario
       }
+    },
+    fetchRoles(page) {
+      this.$inertia.get(`/roles?page=${page}`);
     },
   },
 };

@@ -24,9 +24,12 @@ class InventoryController extends Controller
     public function index()
     {
         $inventories = Inventory::paginate(5);
-        // Renderiza la vista utilizando Inertia y pasa la colección de inventarios
-        return Inertia::render('inventories', ['inventories' => $inventories]);
-    }
+        return Inertia::render('inventories', [
+            'inventories' => $inventories,
+            'pagination' => $inventories->toArray(), // Asegúrate de que los datos de paginación estén disponibles
+        ]);
+        
+        }
 
 
     public function create()
