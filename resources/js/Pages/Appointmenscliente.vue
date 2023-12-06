@@ -8,7 +8,7 @@ import { Head } from "@inertiajs/vue3";
   position: relative;
   width: 100%;
   height: 140vh;
-  background-image: url('@/img/Fondo1.webp');
+  background-image: url('@/img/01.webp');
   background-size: 100% 100%;
   /* Hace que la imagen ocupe todo el contenedor */
   background-position: center;
