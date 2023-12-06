@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
     <AuthenticatedLayoutCliente>
         <div class="py-70">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                
                     <section>
                         <h1>Soporte</h1>
                         <h2>Contacto</h2>
@@ -17,7 +17,7 @@ import { Head } from '@inertiajs/vue3';
                           <p>Email: support@example.com</p>
                           <p>Teléfono: (123) 456-7890</p>
                      </section>
-                </div>
+               
             </div>
         </div>
     </AuthenticatedLayoutCliente>
