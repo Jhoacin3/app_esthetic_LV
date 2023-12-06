@@ -92,7 +92,7 @@ h1 {
                 </a>
 
                 <!-- Cuarto botón con fondo azul -->
-                <a href="#" class="dual-color-button blue" @click="selectService('Cejas')">
+                <a href="/botoxcapilar" class="dual-color-button blue" @click="selectService('Cejas')">
                     <img src="@/img/botox-capilar.webp" alt="" class="button-image" />
                     <span class="button-label">Botox capilar</span>
                 </a>
