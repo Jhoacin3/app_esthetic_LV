@@ -79,6 +79,13 @@ Route::get('/servicios-cliente', function () {
     return Inertia::render('servicescliente');
 })->name('servicescliente.index');
 
+Route::get('/alaciado', function () {
+    return Inertia::render('alaciado');
+})->middleware(['auth', 'verified'])->name('alaciado');
+
+Route::get('/botoxcapilar', function () {
+    return Inertia::render('botoxcapilar');
+})->middleware(['auth', 'verified'])->name('botoxcapilar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -5,16 +5,16 @@ import { Head } from "@inertiajs/vue3";
 </script>
 <style scoped>
 .background-container {
-  position: relative;
-  width: 100%;
-  height: 140vh;
-  background-image: url('@/img/Fondo1.webp');
-  background-size: 100% 100%;
-  /* Hace que la imagen ocupe todo el contenedor */
-  background-position: center;
-  background-repeat: no-repeat;
-  /* Evita que la imagen se repita */
-
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('@/img/01.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 /* Media query para dispositivos más pequeños */
