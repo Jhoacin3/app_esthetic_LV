@@ -14,8 +14,8 @@ import { Head } from '@inertiajs/vue3';
                         <h1>Soporte</h1>
                         <h2>Contacto</h2>
                          <p>Si necesitas asistencia adicional, no dudes en ponerte en contacto con nuestro equipo de soporte.</p>
-                          <p>Email: support@example.com</p>
-                          <p>Teléfono: (123) 456-7890</p>
+                          <p>Email: BeautyStudio@gmail.com</p>
+                          <p>Teléfono: (932) 156-7890</p>
                      </section>
                
             </div>
