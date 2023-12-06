@@ -79,6 +79,14 @@ Route::get('/servicios-cliente', function () {
     return Inertia::render('servicescliente');
 })->name('servicescliente.index');
 
+Route::get('/efectorimel', function () {
+    return Inertia::render('efectorimel');
+})->middleware(['auth', 'verified'])->name('efectorimel');
+
+Route::get('/diseñodecejas', function () {
+    return Inertia::render('diseñodecejas');
+})->middleware(['auth', 'verified'])->name('diseñodecejas');
+
 Route::get('/alaciado', function () {
     return Inertia::render('alaciado');
 })->middleware(['auth', 'verified'])->name('alaciado');
@@ -86,6 +94,16 @@ Route::get('/alaciado', function () {
 Route::get('/botoxcapilar', function () {
     return Inertia::render('botoxcapilar');
 })->middleware(['auth', 'verified'])->name('botoxcapilar');
+
+Route::get('/uñas', function () {
+    return Inertia::render('uñas');
+})->middleware(['auth', 'verified'])->name('uñas');
+
+Route::get('/maquillaje', function () {
+    return Inertia::render('maquillaje');
+})->middleware(['auth', 'verified'])->name('maquillaje');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
