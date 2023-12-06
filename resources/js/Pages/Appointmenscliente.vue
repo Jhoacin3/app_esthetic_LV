@@ -1,5 +1,5 @@
 <script setup>
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import AuthenticatedLayoutCliente from "@/Layouts/AuthenticatedLayoutCliente.vue";
 import { Head } from "@inertiajs/vue3";
 
 </script>
@@ -31,8 +31,8 @@ import { Head } from "@inertiajs/vue3";
   <Head title="Beauty Studio" />
   <div class="background-container">
 
-    <AuthenticatedLayout>
-      <template #content-Agregar>
+    <AuthenticatedLayoutCliente>
+      
         <div class="py-5 px-15">
           <div class="bg-white px-5 py-8 overflow-hidden shadow-sm sm:rounded-lg">
 
@@ -80,8 +80,8 @@ import { Head } from "@inertiajs/vue3";
 
           </div>
         </div>
-      </template>
-    </AuthenticatedLayout>
+      
+    </AuthenticatedLayoutCliente>
 
   </div>
 </template>

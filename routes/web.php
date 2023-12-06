@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RolController;
@@ -18,6 +19,25 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+
+Route::get('/client', function () {
+    return Inertia::render('Welcome_cliente', [
+        'canLogin' => Route::has('login-cliente'),
+        'canRegister' => Route::has('register-cliente'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('client')->middleware('guest');
+
+Route::get('/dashboard-cliente', function () {
+    return Inertia::render('Dashboard_cliente');
+    })->middleware(['auth', 'verified'])->name('dashboard_cliente');
+
+    Route::get('/soporte', function () {
+        return Inertia::render('soporte');
+        })->middleware(['auth', 'verified'])->name('soporte');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -37,8 +57,27 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('inventories',InventoryController::class);
     Route::resource('services',ServiceController::class);
     Route::resource('agendas',AgendaController::class);
+    // Route::resource('soporte',SoporteController::class);
 });
+Route::get('/soporte', function () {
+    return Inertia::render('Soporte');
+})->name('soporte.index');
 
+// Route::get('/soporte/create', function () {
+//     return Inertia::render('Soporte/Create');
+// })->name('soporte.create');
+
+Route::get('/agendas-cliente', function () {
+    return Inertia::render('Appointmenscliente');
+})->name('Appointmenscliente.index');
+
+// Route::get('/agendas-cliente/create', function () {
+//     return Inertia::render('Soporte/Create');
+// })->name('soporte.create');
+
+Route::get('/servicios-cliente', function () {
+    return Inertia::render('servicescliente');
+})->name('servicescliente.index');
 
 
 Route::middleware('auth')->group(function () {

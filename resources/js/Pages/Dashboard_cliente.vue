@@ -1,5 +1,5 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import AuthenticatedLayoutCliente from '@/Layouts/AuthenticatedLayoutCliente.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 <style scoped>
@@ -62,7 +62,7 @@ h1 {
     <Head title="Dashboard" />
      <div class="background-container">
 
-    <AuthenticatedLayout>
+    <AuthenticatedLayoutCliente>
         <!-- <template #header>
 
         </template> -->
@@ -90,6 +90,6 @@ h1 {
                     </div>
                 </div>
             </div>
-    </AuthenticatedLayout>
+    </AuthenticatedLayoutCliente>
     </div>
 </template>
