@@ -7,11 +7,11 @@ import { Head } from '@inertiajs/vue3';
 .background-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-image: url('@/img/01.webp');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -74,13 +74,13 @@ h1 {
             <div class="mt-7 button-container">
                 
                 <!-- Primer botón con fondo rosa -->
-                <a href="#" class="dual-color-button pink" @click="selectService('Uñas')">
+                <a href="/efectorimel" class="dual-color-button pink" @click="selectService('efectorimel')">
                     <img src="@/img/Efecto_rimmel.webp" alt="" class="button-image" />
-                    <span class="button-label">Efecto Rimel</span>
+                    <span class="button-label">efectorimel</span>
                 </a>
 
                 <!-- Segundo botón con fondo azul -->
-                <a href="#" class="dual-color-button blue" @click="selectService('Maquillaje')">
+                <a href="/diseñodecejas" class="dual-color-button blue" @click="selectService('Maquillaje')">
                     <img src="@/img/diseño_cejas_herramientas.webp" alt="" class="button-image" />
                     <span class="button-label">Diseño de cejas</span>
                 </a>
