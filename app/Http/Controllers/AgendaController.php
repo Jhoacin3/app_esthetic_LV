@@ -92,9 +92,9 @@ class AgendaController extends Controller
     }
 
     // ANALIZAR LA VARIABLE agend*******************
-    public function destroy(Agenda $agend)
+    public function destroy(Agenda $agenda)
     {
-        $agend->delete();
+        $agenda->delete();
         return Inertia::location(route('inventories.index'));
     }
 }
