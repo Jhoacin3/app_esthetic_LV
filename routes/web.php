@@ -35,8 +35,8 @@ Route::get('/dashboard-cliente', function () {
     })->middleware(['auth', 'verified'])->name('dashboard_cliente');
 
     Route::get('/soporte', function () {
-        return Inertia::render('soporte');
-        })->middleware(['auth', 'verified'])->name('soporte');
+        return Inertia::render('Soporte');
+        })->middleware(['auth', 'verified'])->name('Soporte');
 
 
 Route::get('/dashboard', function () {
@@ -59,9 +59,9 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('agendas',AgendaController::class);
     // Route::resource('soporte',SoporteController::class);
 });
-Route::get('/soporte', function () {
-    return Inertia::render('Soporte');
-})->name('soporte.index');
+// Route::get('/soporte', function () {
+//     return Inertia::render('soporte');
+// })->name('soporte.index');
 
 // Route::get('/soporte/create', function () {
 //     return Inertia::render('Soporte/Create');
