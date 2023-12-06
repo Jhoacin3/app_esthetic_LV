@@ -74,7 +74,7 @@ h1 {
             <div class="mt-7 button-container">
                 
                 <!-- Primer botón con fondo rosa -->
-                <a href="/efectorimel" class="dual-color-button pink" @click="selectService('efectorimel')">
+                <a href='/efectorimel' class="dual-color-button pink" @click="selectService('efectorimel')">
                     <img src="@/img/Efecto_rimmel.webp" alt="" class="button-image" />
                     <span class="button-label">efectorimel</span>
                 </a>
@@ -86,22 +86,26 @@ h1 {
                 </a>
 
                 <!-- Tercer botón con fondo rosa -->
-                <a href="#" class="dual-color-button pink" @click="selectService('Cabello')">
+                <a href='/alaciado' class="dual-color-button pink" @click="selectService('Cabello')">
                     <img src="@/img/alaciado.webp" alt="" class="button-image" />
                     <span class="button-label">Alaciado</span>
                 </a>
 
                 <!-- Cuarto botón con fondo azul -->
+<<<<<<< HEAD
                 <a href="/botoxcapilar" class="dual-color-button blue" @click="selectService('Cejas')">
+=======
+                <a href='/botoxcapilar' class="dual-color-button blue" @click="selectService('Cejas')">
+>>>>>>> 6f778afac2c44cff75d0a878a2cf721cf6dfeb4d
                     <img src="@/img/botox-capilar.webp" alt="" class="button-image" />
                     <span class="button-label">Botox capilar</span>
                 </a>
-                <a href="#" class="dual-color-button pink" @click="selectService('Cabello')">
+                <a href='/uñas' class="dual-color-button pink" @click="selectService('Cabello')">
                     <img src="@/img/uñas_rosadas.webp" alt="" class="button-image" />
                     <span class="button-label">Uñas</span>
                 </a>
                 <!-- Cuarto botón con fondo azul -->
-                <a href="#" class="dual-color-button blue" @click="selectService('Cejas')">
+                <a href='/maquillaje' class="dual-color-button blue" @click="selectService('Cejas')">
                     <img src="@/img/Maquillaje_ojos_creativo.webp" alt="" class="button-image" />
                     <span class="button-label">Maquillaje</span>
                 </a>
