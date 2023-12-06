@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/vue3';
 
 <template>
     <Head title="Beauty Studio" />
-
+ <div class="background-container">
     <AuthenticatedLayoutCliente>
         <div class="py-70">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -21,8 +21,23 @@ import { Head } from '@inertiajs/vue3';
             </div>
         </div>
     </AuthenticatedLayoutCliente>
+</div>
 </template>
 <style>
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('@/img/01.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
   section {
             background-color: #9fe9ed; /* Cambia el color de fondo según tu preferencia */
             padding: 30px; /* Ajusta el espaciado interno según tu preferencia */
