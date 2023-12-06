@@ -1,118 +1,122 @@
 <script setup>
 import AuthenticatedLayoutCliente from '@/Layouts/AuthenticatedLayoutCliente.vue';
 import { Head } from '@inertiajs/vue3';
-
-
 </script>
+<style scoped>
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('@/img/01.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Media query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .background-container {
+        height: auto; /* Cambiado a auto para permitir que el contenido expanda según sea necesario */
+    }
+
+    .imgen2 {
+        position: relative; /* Cambiado a relativo para que fluya con el contenido */
+        width: 100%; /* La imagen ocupa el 100% del ancho del contenedor padre */
+        max-width: 500px; /* Establece un límite máximo para el ancho de la imagen */
+        height: auto; /* La altura se ajusta automáticamente según el ancho */
+        margin-top: 20px; /* Agregado espacio entre la imagen y el texto */
+        margin-right: 10px; /* Agregado espacio a la derecha de la imagen */
+    }
+
+    p,
+    h1 {
+        text-align: center; /* Centrar el texto en dispositivos más pequeños */
+    }
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 30px;
+    color: goldenrod;
+    font-family: 'Brush Script MT', cursive;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+</style>
 
 <template>
     <Head title="Dashboard" />
+    <div class="background-container">
 
     <AuthenticatedLayoutCliente>
-        <template #header>
 
-        </template>
 
-        <div>
-           <center> <div class=" text-gray-900 font-extrabold italic text-7xl" style="font-family: 'Brush Script MT', cursive;">
+
+
+
+        <div >
+           <center> <div class=" text-black font-extrabold italic text-7xl" style="font-family: 'Brush Script MT', cursive;">
                 Beauty Studio
             </div></center>
-            <div class="mt-9 button-container">
+            <div class="mt-7 button-container">
+                
                 <!-- Primer botón con fondo rosa -->
                 <a href="#" class="dual-color-button pink" @click="selectService('Uñas')">
-                    <img src="/img/uñas1.jpg" alt="Diseño de uñas" class="button-image" />
-                    <span class="button-label">Uñass</span>
+                    <img src="@/img/Efecto_rimmel.webp" alt="" class="button-image" />
+                    <span class="button-label">Efecto Rimel</span>
                 </a>
 
                 <!-- Segundo botón con fondo azul -->
                 <a href="#" class="dual-color-button blue" @click="selectService('Maquillaje')">
-                    <img src="/img/maquillage1.jpg" alt="Maquillaje" class="button-image" />
-                    <span class="button-label">Maquillaje</span>
+                    <img src="@/img/diseño_cejas_herramientas.webp" alt="" class="button-image" />
+                    <span class="button-label">Diseño de cejas</span>
                 </a>
 
                 <!-- Tercer botón con fondo rosa -->
                 <a href="#" class="dual-color-button pink" @click="selectService('Cabello')">
-                    <img src="/img/peinado.jpg" alt="Peinados" class="button-image" />
-                    <span class="button-label">Cabello</span>
+                    <img src="@/img/alaciado.webp" alt="" class="button-image" />
+                    <span class="button-label">Alaciado</span>
                 </a>
 
                 <!-- Cuarto botón con fondo azul -->
                 <a href="#" class="dual-color-button blue" @click="selectService('Cejas')">
-                    <img src="/img/Cejas.jpg" alt="Diseño de Cejas" class="button-image" />
-                    <span class="button-label">Cejas</span>
+                    <img src="@/img/botox-capilar.webp" alt="" class="button-image" />
+                    <span class="button-label">Botox capilar</span>
+                </a>
+                <a href="#" class="dual-color-button pink" @click="selectService('Cabello')">
+                    <img src="@/img/uñas_rosadas.webp" alt="" class="button-image" />
+                    <span class="button-label">Uñas</span>
+                </a>
+                <!-- Cuarto botón con fondo azul -->
+                <a href="#" class="dual-color-button blue" @click="selectService('Cejas')">
+                    <img src="@/img/Maquillaje_ojos_creativo.webp" alt="" class="button-image" />
+                    <span class="button-label">Maquillaje</span>
                 </a>
             </div>
 
         </div>
-
-
+        
     </AuthenticatedLayoutCliente>
+
+    </div>
 </template>
 
-
-<script>
-export default {
-    data() {
-        return {
-            selectedServiceImages: [],
-            services: {
-                Uñas: [
-                    { url: 'img/uñas_rosadas.png', alt: 'Diseño de uñas 1', link: 'https://www.ejemplo.com/ordenar-unas-1' },
-                    { url: 'img/Uñas_multicolor.jpg', alt: 'Diseño de uñas 2', link: 'https://www.ejemplo.com/ordenar-unas-2' },
-                    // Agrega más imágenes según sea necesario
-                ],
-                Maquillaje: [
-                    { url: 'img/Maquillaje_azul.jpg', alt: 'Maquillaje 1', link: 'https://www.ejemplo.com/ordenar-maquillaje-1' },
-                    { url: 'img/Maquillaje_ojos_creativo.webp', alt: 'Maquillaje 2', link: 'https://www.ejemplo.com/ordenar-maquillaje-2' },
-                    // Agrega más imágenes según sea necesario
-                ],
-                Cabello: [
-                    { url: 'img/Peinado_lazoazul.jpg', alt: 'Cabello 1', link: 'https://www.ejemplo.com/ordenar-cabello-1' },
-                    { url: 'img/Peinados.jpg', alt: 'Cabello 2', link: 'https://www.ejemplo.com/ordenar-cabello-2' },
-                    // Agrega más imágenes según sea necesario
-                ],
-                Cejas: [
-                    { url: 'img/Cejas.jpg', alt: 'Diseño de cejas 1', link: 'https://www.ejemplo.com/ordenar-cejas-1' },
-                    { url: 'img/maquillaje_ojos_individual.jpg', alt: 'Diseño de cejas 2', link: 'https://www.ejemplo.com/ordenar-cejas-2' },
-                    // Agrega más imágenes según sea necesario
-                ],
-            },
-            images: [
-                'img/Peinado_lazoazul.jpg',
-                'img/Cara_Crema.jpg',
-                'img/Cara_estetica_Maquina.jpg',
-            ],
-            currentIndex: 0,
-        };
-    },
-    methods: {
-        changeSlide(index) {
-            this.currentIndex = index;
-            this.showSlide();
-        },
-        selectService(service) {
-            this.selectedServiceImages = this.services[service];
-            this.$refs.carouselInner.style.transform = 'translateY(0)';
-        },
-        showSlide() {
-            const carouselInner = this.$refs.carouselInner;
-            if (carouselInner) {
-                const translateValue = -this.currentIndex * 100 + '%';
-                carouselInner.style.transform = 'translateY(' + translateValue + ')';
-            }
-        },
-    },
-    mounted() {
-        console.log(this.$refs.carouselInner); // Verifica el valor de carouselInner
-        setInterval(() => {
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            this.showSlide();
-        }, 5000);
-    },
-};
-</script>
-
 <style scoped>
+
+
 
 .carousel-title {
     text-align: center;
@@ -133,9 +137,10 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 40px 40px; /* Aumentar el padding para hacer el botón más grande */
-    font-size: 1rem; /* Ajustar el tamaño de la fuente */
+    font-size: 2rem; /* Ajustar el tamaño de la fuente */
     text-decoration: none;
-    color: #fff;
+    font-family: 'Brush Script MT', cursive;
+    color: #131212;
     border: 2px solid #fff; /* Aumentar el grosor del borde */
     border-radius: 5px; /* Ajustar el radio de borde */
     cursor: pointer;
@@ -147,16 +152,16 @@ export default {
     width: 140px; /* Ajusta el ancho de la imagen */
     height: 140px; /* Ajusta la altura de la imagen */
     border-radius: 90%; /* Hace que la imagen sea redonda */
-    margin-bottom: 50px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 40px; /* Espacio entre la imagen y el texto */
 }
 
 .dual-color-button.pink {
-    background: linear-gradient(to right, #ff80bf 20%, #fff 20%, #fff 80%, #ff80bf 80%);
+    background: linear-gradient(to right, #ff80bf 100%, #fff 20%, #fff 80%, #ff80bf 80%);
     /* Gradiente de color rosa */
 }
 
 .dual-color-button.blue {
-    background: linear-gradient(to right, #80bfff 20%, #fff 20%, #fff 80%, #80bfff 80%);
+    background: linear-gradient(to right, #80bfff 100%, #fff 20%, #fff 80%, #80bfff 80%);
     /* Gradiente de color azul */
 }
 
@@ -197,3 +202,5 @@ export default {
     transform: scale(1.2);
     /* Puedes ajustar el tamaño de la imagen activa */
 }</style>
+
+  
