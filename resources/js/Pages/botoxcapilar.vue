@@ -23,10 +23,10 @@
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
 
-                                ° Tratamiento de Botox Capilar Profesional <br>
-                                ° Restauración de la Fibra Capilar <br>
-                                ° Cuidado y Mantenimiento Post-Tratamiento <br>
-                                ° Asesoramiento y Seguimiento Personalizado <br>
+                                ° Densificador:Todo tipo de cabellos <br>
+                                ° Diamante Premium: Cabellos finos y delicados<br>
+                                ° Protector del Color: Cabellos coloreados y decolorados <br>
+                    
                                 </p>
                               
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>

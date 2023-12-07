@@ -23,10 +23,9 @@
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
 
-                                ° Maquillaje y Estilo de Pestañas <br>
-                                ° Técnicas Profesionales <br>
-                                ° Coloración y Tratamientos Especiales: <br>
-                                ° Consejos y Asesoramiento <br>
+                                ° Pestañas 3D: Efecto sombra <br>
+                                ° Pestañas 2D: Efecto delineador<br>
+                                ° Pestañas 3D: Efecto rímel. <br>
                                 </p>
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>

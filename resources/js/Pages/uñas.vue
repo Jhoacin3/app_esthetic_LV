@@ -23,10 +23,9 @@
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
 
-                                ° Diseño de Uñas Personalizado <br>
-                                ° Variedad de Esmaltes y Técnicas <br>
-                                ° Nail Art y Decoraciones <br>
-                                ° Tratamientos de Cuidado <br>
+                                ° Uñas acrilicas <br>
+                                ° Uñas de gel <br>
+                                ° Uñas de porcelana<br>
                                 </p>
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>

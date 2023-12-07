@@ -23,10 +23,9 @@
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
 
-                                ° Alaciado Profesional <br>
-                                ° Tratamientos de Alisado <br>
-                                ° Cuidado y Mantenimiento <br>
-                                ° Asesoramiento Profesional <br>
+                                ° Alaciado japonés<br>
+                                ° Alaciado de ozono<br>
+                                ° Alaciado de queratina <br>
                                 </p>
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>

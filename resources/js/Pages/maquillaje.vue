@@ -22,9 +22,10 @@
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
 
-                                ° Maquillaje Profesional <br>
-                                ° Maquillaje de Evento Especial <br>
-                                ° Asesoramiento de Productos y Técnicas <br>
+                                ° Maquillaje para eventos<br>
+                                ° Maquillaje fantasía<br>
+                                ° Maquillaje para eventos<br>
+                                ° Maquillaje para fotografias <br>
                               
                                 </p>
                                 <br>
