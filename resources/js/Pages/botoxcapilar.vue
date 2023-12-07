@@ -15,22 +15,22 @@
                         class="flex flex-col items-center justify-center mt-8 sm:flex-row sm:items-center sm:justify-between">
                         <!-- Descripción y Agendar Cita -->
                         <div class="w-full sm:w-1/2 px-10 p-4 rounded-lg shadow-lg mb-8 sm:mb-0">
-                            <div class="texto-nails">
-                                <p class="text-lg font-medium text-gray-800">
-                                    En nuestra sección especializada en botox capilar, nos complace ofrecerte una
-                                    experiencia única y personalizada para revitalizar y nutrir tu cabello desde adentro.
-                                    <br><br>
-                                <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
-                                <br>
+    <div class="texto-nails">
+        <p class="text-lg font-medium text-gray-800">
+            En nuestra sección especializada en botox capilar, nos complace ofrecerte una
+            experiencia única y personalizada para revitalizar y nutrir tu cabello desde adentro.
+        </p>
+        <br><br>
+        <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
 
-                                ° Densificador:Todo tipo de cabellos <br>
-                                ° Diamante Premium: Cabellos finos y delicados<br>
-                                ° Protector del Color: Cabellos coloreados y decolorados <br>
-                    
-                                </p>
+        <p class="text-lg font-medium text-gray-800">
+            ° Densificador: Todo tipo de cabellos <br>
+            ° Diamante Premium: Cabellos finos y delicados<br>
+            ° Protector del Color: Cabellos coloreados y decolorados <br>
+        </p>
                               
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>
-                                <p class="text-lg font-medium text-gray-800">300</p>
+                                <p class="text-lg font-medium text-gray-800">500</p>
                             </div>
                             <div class="flex mt-4 sm:mt-8 space-x-4">
                                 <a href='/agendas-cliente'

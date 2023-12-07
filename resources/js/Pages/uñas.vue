@@ -15,21 +15,22 @@
                         class="flex flex-col items-center justify-center mt-8 sm:flex-row sm:items-center sm:justify-between">
                         <!-- Descripción y Agendar Cita -->
                         <div class="w-full sm:w-1/2 px-10 p-4 rounded-lg shadow-lg mb-8 sm:mb-0">
-                            <div class="texto-nails">
-                                <p class="text-lg font-medium text-gray-800">
-                                    En nuestro apartado dedicado a las uñas, nos complace ofrecerte una experiencia única y
-                                    personalizada para realzar la belleza de tus manos.
-                                    <br><br>
-                                <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
-                                <br>
+    <div class="texto-nails">
+        <p class="text-lg font-medium text-gray-800">
+            En nuestro apartado dedicado a las uñas, nos complace ofrecerte una experiencia única y
+            personalizada para realzar la belleza de tus manos.
+        </p>
+        <br><br>
+        <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
 
-                                ° Uñas acrilicas <br>
-                                ° Uñas de gel <br>
-                                ° Uñas de porcelana<br>
-                                </p>
+        <p class="text-lg font-medium text-gray-800">
+            ° Uñas acrílicas <br>
+            ° Uñas de gel <br>
+            ° Uñas de porcelana<br>
+        </p>
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>
-                                <p class="text-lg font-medium text-gray-800">300</p>
+                                <p class="text-lg font-medium text-gray-800">150</p>
                             </div>
                             <div class="flex mt-4 sm:mt-8 space-x-4">
                                 <a href='/agendas-cliente'
