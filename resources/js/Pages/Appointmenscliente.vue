@@ -54,8 +54,9 @@ import { Head } from "@inertiajs/vue3";
                   <option value="Maquillaje">Efecto Rimel</option>
                   <option value="Uñas acrílicas">Diseño de cejas</option>
                   <option value="Peinados">Alaciados </option>
-                  <option value="Corte de cabello">Botox capilar y Bluetox </option>
-                  <option value="Diseño de cejas">Repolarizacion capilares</option>
+                  <option value="Corte de cabello">Botox capilar </option>
+                  <option value="Diseño de cejas">Uñas</option>
+                  <option value="Diseño de cejas">Maquillaje</option>
                 </select>
               </div>
 
@@ -67,7 +68,7 @@ import { Head } from "@inertiajs/vue3";
 
               <div class="flex mt-4 flex-col">
                 <label for="hora" class="text-sm font-medium text-gray-700 mb-1">Hora:</label>
-                <input type="time" v-model="hora" id="hora" name="hora" min="23:59" max="23:59" required
+                <input type="time" v-model="hora" id="hora" name="hora" min="10:00" max="16:00" required
                   class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
               </div>
 

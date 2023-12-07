@@ -50,12 +50,12 @@
                   <label for="service" class="text-sm mt-4 font-medium text-gray-700 mb-1">Tipo de Cita:</label>
                   <select v-model="form.service" id="service" name="service" required
                     class="mt-2 block w-full sm:max-w-md lg:w-96 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="Maquillaje">Maquillaje</option>
-                    <option value="Uñas acrílicas">Uñas acrílicas</option>
-                    <option value="Peinados">Peinados</option>
-                    <option value="Corte de cabello">Corte de cabello</option>
-                    <option value="Diseño de cejas">Diseño de cejas</option>
-                    <option value="Tintes">Tintes</option>
+                    <option value="Maquillaje">Efecto Rimel</option>
+                    <option value="Uñas acrílicas">Diseño de cejas </option>
+                    <option value="Peinados">Alaciado</option>
+                    <option value="Corte de cabello">Botox capilar</option>
+                    <option value="Diseño de cejas">Uñas</option>
+                    <option value="Tintes">Maquillaje</option>
                   </select>
                 </div>
                 <div class="flex mt-4 flex-col">
