@@ -11,22 +11,20 @@
                         </div>
                     </center>
 
-                    <div
-                        class="flex flex-col items-center justify-center mt-8 sm:flex-row sm:items-center sm:justify-between">
-                        <!-- Descripción y Agendar Cita -->
-                        <div class="w-full sm:w-1/2 px-10 p-4 rounded-lg shadow-lg mb-8 sm:mb-0">
-                            <div class="texto-nails">
-                                <p class="text-lg font-medium text-gray-800">
-                                    En nuestra sección especializada en efecto rímel, nos complace ofrecerte una experiencia
-                                    única y personalizada para realzar la belleza de tus pestañas y resaltar tu mirada.
-                                    <br><br>
-                                <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
-                                <br>
-
-                                ° Pestañas 3D: Efecto sombra <br>
-                                ° Pestañas 2D: Efecto delineador<br>
-                                ° Pestañas 3D: Efecto rímel. <br>
-                                </p>
+                    <div class="flex flex-col items-center justify-center mt-8 sm:flex-row sm:items-center sm:justify-between">
+    <!-- Descripción y Agendar Cita -->
+    <div class="w-full sm:w-1/2 px-10 p-4 rounded-lg shadow-lg mb-8 sm:mb-0">
+        <div class="texto-nails">
+            <p class="text-lg font-medium text-gray-800">
+                En nuestra sección especializada en efecto rímel, nos complace ofrecerte una experiencia única y personalizada para realzar la belleza de tus pestañas y resaltar tu mirada.
+                <br><br>
+            </p>
+            <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
+            <p class="text-lg font-medium text-gray-800">
+                ° Pestañas 3D: Efecto sombra <br>
+                ° Pestañas 2D: Efecto delineador<br>
+                ° Pestañas 3D: Efecto rímel. <br>
+            </p>
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>
                                 <p class="text-lg font-medium text-gray-800">300</p>

@@ -19,6 +19,7 @@
                                 <p class="text-lg font-medium text-gray-800">
                                     En nuestra sección especializada en alaciado capilar, nos complace ofrecerte una
                                     experiencia única y personalizada para lograr un cabello liso y manejable.
+                                </p>
                                     <br><br>
                                 <h1 class="text-xl font-bold mb-2">Servicios Exclusivos:</h1>
                                 <br>
@@ -26,10 +27,10 @@
                                 ° Alaciado japonés<br>
                                 ° Alaciado de ozono<br>
                                 ° Alaciado de queratina <br>
-                                </p>
+                               
                                 <br>
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>
-                                <p class="text-lg font-medium text-gray-800">300</p>
+                                <p class="text-lg font-medium text-gray-800">190</p>
                             </div>
                             <div class="flex mt-4 sm:mt-8 space-x-4">
                                 <a href='/agendas-cliente'
