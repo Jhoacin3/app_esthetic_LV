@@ -72,8 +72,8 @@ const closeSidebar = () => {
                   <li>
 
                      <ResponsiveNavLink href='/dashboard-cliente'
-                        class="flex items-center mt-20 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512" fill="orange">
+                     class="flex items-center mt-20 p-2 text-neutral-50 rounded-lg dark:text-white bg-neutral-900 hover:bg-neutral-100 group">
+                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 576 512" fill="orange">
                            <!-- Cambiar el color a amarillo -->
                            <path
                               d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
@@ -84,8 +84,8 @@ const closeSidebar = () => {
 
                   <li>
                      <ResponsiveNavLink href="/agendas-cliente"
-                        class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-700 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" fill="orange">
+                     class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white bg-neutral-900 hover:bg-neutral-100 group">
+                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" fill="orange">
                            <path
                               d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z" />
                            <!-- Cambiar el color a amarillo -->
@@ -95,8 +95,8 @@ const closeSidebar = () => {
                   </li>
                   <li>
                      <ResponsiveNavLink href="/servicios-cliente"
-                        class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 18 20">
+                     class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white bg-neutral-900 hover:bg-neutral-100 group">
+                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 18 20">
                            <path
                               d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                         </svg>
@@ -105,8 +105,8 @@ const closeSidebar = () => {
                   </li>
                   <li>
                      <ResponsiveNavLink href='/soporte'
-                        class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-50 group">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 20 18">
+                     class="flex items-center mt-8 p-2 text-neutral-50 rounded-lg dark:text-white bg-neutral-900 hover:bg-neutral-100 group">
+                     <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" fill="orange" viewBox="0 0 20 18">
                            <path
                               d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                         </svg>
