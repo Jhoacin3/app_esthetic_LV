@@ -28,18 +28,13 @@ import { Head } from '@inertiajs/vue3';
                         <!-- Descripción a la izquierda dentro de un cuadro con bordes difuminados -->
                         <div class="w-1/2 px-10 p-4 rounded-lg shadow-lg">
                             <!-- Título "Efecto rímel" -->
-                            <h2 class="text-xl font-bold mb-2">Efecto Rímel</h2>
-
-                            <!-- Precio (Ejemplo: $29.99) -->
-                            <p class="text-lg font-medium text-gray-600 mb-4">$29.99</p>
-
-                            <!-- Descripción -->
-                            <p class="text-lg font-medium text-gray-800">
-                                El "efecto rímel" se refiere a los resultados estéticos al aplicar máscara de pestañas en
-                                las pestañas. Los efectos comunes incluyen alargamiento, volumen, curvatura, color y
-                                definición. La máscara de pestañas resalta la belleza natural de las pestañas y destaca la
-                                expresión de los ojos, logrando un aspecto más definido y atractivo.
-                            </p>
+                            <h2 class="text-2xl md:text-4xl font-bold mb-2">Botox Capilar</h2>
+          <!-- Precio (Ejemplo: $29.99) -->
+          <p class="text-lg md:text-xl font-medium text-gray-600 mb-4">$29.99</p>
+          <!-- Descripción -->
+          <p class="text-base md:text-lg font-medium text-gray-800">
+            El botox capilar es un tratamiento cosmético para el cabello que utiliza ingredientes como colágeno y queratina para hidratar, reparar y rejuvenecer el cabello. Aunque se llama "botox", no contiene toxina botulínica. Este tratamiento busca reducir el frizz, restaurar la salud del cabello y mejorar su apariencia, dejándolo más suave, brillante y manejable.
+          </p>
 
                             <div class="flex mt-4 space-x-4">
                                 <a href='/agendas-cliente' class="bg-blue-500 text-white mt-5 px-4 py-2 rounded-md shadow-md hover:shadow-lg"
