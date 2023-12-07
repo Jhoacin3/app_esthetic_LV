@@ -75,7 +75,7 @@ const submit = () => {
         <div class="text-sm text-right">
             <Link v-if="canResetPassword" :href="route('password.request')"
                 class="font-semibold text-cyan-600 hover:text-cyan-700">
-            Olvidastes tu contraseña?
+            ¿Olvidaste tu contraseña?
             </Link>
         </div>
     </div>
@@ -92,11 +92,11 @@ const submit = () => {
         </PrimaryButton>
     </div>
 </form>
-<p className="mt-10 text-center text-sm text-gray-500">
+<!-- <p className="mt-10 text-center text-sm text-gray-500">
     ¿Aún no tienes una cuenta? 
     <a href="register" className="font-semibold leading-6 text-cyan-600 hover:text-cyan-700">
        Únete
     </a>
-  </p>
+  </p> -->
 </GuestLayout>
 </template>
