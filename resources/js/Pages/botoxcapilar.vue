@@ -28,7 +28,7 @@
                                 ° Cuidado y Mantenimiento Post-Tratamiento <br>
                                 ° Asesoramiento y Seguimiento Personalizado <br>
                                 </p>
-                                <br>
+                              
                                 <h1 class="text-xl font-bold mb-2">Precio:</h1>
                                 <p class="text-lg font-medium text-gray-800">300</p>
                             </div>
