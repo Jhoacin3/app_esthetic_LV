@@ -76,7 +76,7 @@ h1 {
                 <!-- Primer botón con fondo rosa -->
                 <a href='/efectorimel' class="dual-color-button pink" @click="selectService('efectorimel')">
                     <img src="@/img/Efecto_rimmel.webp" alt="" class="button-image" />
-                    <span class="button-label">efectorimel</span>
+                    <span class="button-label">Efecto Rimel</span>
                 </a>
 
                 <!-- Segundo botón con fondo azul -->
@@ -92,11 +92,9 @@ h1 {
                 </a>
 
                 <!-- Cuarto botón con fondo azul -->
-<<<<<<< HEAD
-                <a href="/botoxcapilar" class="dual-color-button blue" @click="selectService('Cejas')">
-=======
+
                 <a href='/botoxcapilar' class="dual-color-button blue" @click="selectService('Cejas')">
->>>>>>> 6f778afac2c44cff75d0a878a2cf721cf6dfeb4d
+
                     <img src="@/img/botox-capilar.webp" alt="" class="button-image" />
                     <span class="button-label">Botox capilar</span>
                 </a>
