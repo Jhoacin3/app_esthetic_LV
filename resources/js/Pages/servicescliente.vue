@@ -76,7 +76,7 @@ h1 {
                 <!-- Primer botón con fondo rosa -->
                 <a href='/efectorimel' class="dual-color-button pink" @click="selectService('efectorimel')">
                     <img src="@/img/Efecto_rimmel.webp" alt="" class="button-image" />
-                    <span class="button-label">efectorimel</span>
+                    <span class="button-label">Efecto Rimel</span>
                 </a>
 
                 <!-- Segundo botón con fondo azul -->
