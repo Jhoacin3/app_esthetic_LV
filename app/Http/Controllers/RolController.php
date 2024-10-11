@@ -33,7 +33,7 @@ class RolController extends Controller
         // return Inertia::render('users', ['users' => $users]);
         return Inertia::render('roles', [
           'roles' => $roles,
-          'pagination' => $roles->toArray(), // Asegúrate de que los datos de paginación estén disponibles
+          'pagination' => $roles->toArray(), 
       ]);
      
     }
