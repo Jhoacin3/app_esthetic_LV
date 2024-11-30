@@ -22,8 +22,9 @@
   <img src="https://github.com/user-attachments/assets/d4e399c1-4524-469b-8ab5-8f61110d94e1" alt="seccion_agenda_citas" width="800px">
 </p>
  <p align="left">
-  <img src="https://github.com/user-attachments/assets/68ba792a-6b16-4309-9f95-b1a072094e40" alt="agendar_citas_2" width="800px">
+  <img src="https://github.com/user-attachments/assets/c180ed47-79f0-4426-85e3-bbc6848fb04d" alt="agendar_citas_2" width="800px">
 </p>
+
 
  Gestión de Servicios
  <p align="left">
