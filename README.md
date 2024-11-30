@@ -1,7 +1,7 @@
 ## Interfaces del sistema
-#Login
+# Login
  <p align="left">
-  <img src="https://github.com/user-attachments/assets/a1d17375-a4bb-4cb7-beae-4123556a6640" alt="home_inicio1" width="200px">
+  <img src="https://github.com/user-attachments/assets/a1d17375-a4bb-4cb7-beae-4123556a6640" alt="home_inicio1" width="800px">
 </p>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
