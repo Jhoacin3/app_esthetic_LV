@@ -4,6 +4,7 @@
   <img src="https://github.com/user-attachments/assets/d61d3119-7c0c-40fd-9b9b-7469b0b160df" alt="home_inicio1" width="800px">
 </p>
 ### Dashboard
+
  <p align="left">
   <img src="https://github.com/user-attachments/assets/41626367-17e2-4468-8480-68fc111e24a1" alt="Dashboard_1" width="800px">
 </p>
