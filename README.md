@@ -3,8 +3,8 @@
  <p align="left">
   <img src="https://github.com/user-attachments/assets/d61d3119-7c0c-40fd-9b9b-7469b0b160df" alt="home_inicio1" width="800px">
 </p>
- Dashboard
 
+ Dashboard
  <p align="left">
   <img src="https://github.com/user-attachments/assets/5dcceaf7-a73f-4349-b784-a3d487c0e301" alt="dashboard_2" width="800px">
 </p>
@@ -38,14 +38,24 @@
   <img src="https://github.com/user-attachments/assets/8f9a88b6-c288-448f-81c6-36faff427071" alt="roles" width="800px">
 </p>
 
-Acciones
 Todas las acciónes usan SweetAlert2
 <p align="left">
   <img src="https://github.com/user-attachments/assets/322da6e0-b4b5-4aa3-b5bc-0ae0b21a728c" alt="acciones" width="800px">
 </p>
 
 ## Interfaces Responsivas
-
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/33fa5ec6-d134-4e2b-82a5-7331586a3553" alt="home_inicio2" width="800px">
+</p>
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/2cab3f30-f3ab-4679-ad32-788bee6e21f5" alt="2" width="800px">
+</p>
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/0a62ee23-a00e-483b-96fc-90ba845cf488" alt="3" width="800px">
+</p>
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/e78ac65c-799a-45b2-a487-4e339a8ed318" alt="4" width="800px">
+</p>
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
