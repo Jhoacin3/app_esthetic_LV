@@ -6,8 +6,9 @@
  Dashboard
 
  <p align="left">
-  <img src="https://github.com/user-attachments/assets/41626367-17e2-4468-8480-68fc111e24a1" alt="Dashboard_1" width="800px">
+  <img src="https://github.com/user-attachments/assets/5dcceaf7-a73f-4349-b784-a3d487c0e301" alt="dashboard_2" width="800px">
 </p>
+
  Gestión de Almacén
  <p align="left">
   <img src="https://github.com/user-attachments/assets/89fc82f8-a4f8-4236-a24c-bec45be7e1d4" alt="Almacén" width="800px">
@@ -20,14 +21,29 @@
  <p align="left">
   <img src="https://github.com/user-attachments/assets/d4e399c1-4524-469b-8ab5-8f61110d94e1" alt="seccion_agenda_citas" width="800px">
 </p>
+ <p align="left">
+  <img src="https://github.com/user-attachments/assets/68ba792a-6b16-4309-9f95-b1a072094e40" alt="agendar_citas_2" width="800px">
+</p>
+
  Gestión de Servicios
  <p align="left">
   <img src="https://github.com/user-attachments/assets/ad28ad40-a638-42b5-80a2-440a406f5a7f" alt="servicios" width="800px">
 </p>
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/bcc5bfe1-77af-4aea-977a-453d32ff784f" alt="servicios_"" width="800px">
+</p>
+
  Gestión de Roles
  <p align="left">
   <img src="https://github.com/user-attachments/assets/8f9a88b6-c288-448f-81c6-36faff427071" alt="roles" width="800px">
 </p>
+
+Acciones
+Todas las acciónes usan SweetAlert2
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/322da6e0-b4b5-4aa3-b5bc-0ae0b21a728c" alt="acciones" width="800px">
+</p>
+
 ## Interfaces Responsivas
 
 
