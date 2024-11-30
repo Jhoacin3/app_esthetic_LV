@@ -1,30 +1,30 @@
 # Interfaces del sistema
-### Login
+## Login
  <p align="left">
   <img src="https://github.com/user-attachments/assets/d61d3119-7c0c-40fd-9b9b-7469b0b160df" alt="home_inicio1" width="800px">
 </p>
-### Dashboard
+## Dashboard
 
  <p align="left">
   <img src="https://github.com/user-attachments/assets/41626367-17e2-4468-8480-68fc111e24a1" alt="Dashboard_1" width="800px">
 </p>
-### Gestión de Almacén
+## Gestión de Almacén
  <p align="left">
   <img src="https://github.com/user-attachments/assets/89fc82f8-a4f8-4236-a24c-bec45be7e1d4" alt="Almacén" width="800px">
 </p>
-### Gestión de empleados
+## Gestión de empleados
  <p align="left">
   <img src="https://github.com/user-attachments/assets/adf7b9d0-8329-442e-a23b-9c84ccbb9d28" alt="gestion_empleados" width="800px">
 </p>
-### Gestión de Citas
+## Gestión de Citas
  <p align="left">
   <img src="https://github.com/user-attachments/assets/d4e399c1-4524-469b-8ab5-8f61110d94e1" alt="seccion_agenda_citas" width="800px">
 </p>
-### Gestión de Servicios
+## Gestión de Servicios
  <p align="left">
   <img src="https://github.com/user-attachments/assets/ad28ad40-a638-42b5-80a2-440a406f5a7f" alt="servicios" width="800px">
 </p>
-### Gestión de Roles
+## Gestión de Roles
  <p align="left">
   <img src="https://github.com/user-attachments/assets/8f9a88b6-c288-448f-81c6-36faff427071" alt="roles" width="800px">
 </p>
