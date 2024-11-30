@@ -1,7 +1,7 @@
 # Interfaces del sistema
 ## Login
  <p align="left">
-  <img src="https://github.com/user-attachments/assets/a1d17375-a4bb-4cb7-beae-4123556a6640" alt="home_inicio1" width="800px">
+  <img src="https://github.com/user-attachments/assets/d61d3119-7c0c-40fd-9b9b-7469b0b160df" alt="home_inicio1" width="800px">
 </p>
 ## Inicio
  <p align="left">
